@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Nested &amp; Color Coded Interactive Timeline</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <div class="body-wrap">
+        <div class="pres-timeline" id="this-timeline">
+            <div class="periods-container">
+                <section class="period-single" period="period1">
+                    <h4 class="year">1980年代</h4>
+                    <h2 class="title">农村市场化改革的起步与发展阶段</h2>
+                </section>
+                <section class="period-single" period="period2">
+                    <h4 class="year">1990年代</h4>
+                    <h2 class="title">发展探索社会主义市场经济阶段</h2>
+                </section>
+                <section class="period-single" period="period3">
+                    <h4 class="year">2003-2007年</h4>
+                    <h2 class="title">乡村基础整治阶段</h2>
+                </section>
+                <section class="period-single" period="period4">
+                    <h4 class="year">2007-2010年</h4>
+                    <h2 class="title">乡村全面整治阶段</h2>
+                </section>
+                <section class="period-single" period="period5">
+                    <h4 class="year">2011-2015年</h4>
+                    <h2 class="title">美丽乡村结社阶段、千万工程深化阶段</h2>
+                </section>
+                <div class="btn-back"></div>
+                <div class="btn-next"></div>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline"></div>
+                <div class="btn-back"><svg width="30" height="30" viewBox="0 0 30 30"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" d="M0 0h30v30H0z" />
+                        <path fill="#D8D8D8" fill-rule="evenodd"
+                            d="M11.828 15l7.89-7.89-2.83-2.828L6.283 14.89l.11.11-.11.11L16.89 25.72l2.828-2.83" />
+                    </svg></div>
+                <div class="btn-next"><svg width="30" height="30" viewBox="0 0 30 30"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" d="M0 0h30v30H0z" />
+                        <path fill="#D8D8D8" fill-rule="evenodd"
+                            d="M18.172 14.718l-7.89-7.89L13.112 4l10.606 10.607-.11.11.11.11-10.608 10.61-2.828-2.83 7.89-7.89" />
+                    </svg></div>
+            </div>
+            <div class="cards-container">
+                <section class="card-single active" period="period1">
+                    <h4 class="year">1980年代</h4>
+                    <h2 class="title">
+                        在1980年代，中国农村市场化改革开始起步，这一时期以家庭联产承包责任制的实施为标志，极大地激发了农民的生产积极性，促进了农村经济的发展。这一改革是农村改革的第一步，也是中国改革开放的重要组成部分
+                    </h2>
+                    <div class="content">
+                        <img src="https://www.ourchinastory.com/images/content/authors/2022/11/RuralArea1_x1.jpg"
+                            alt="" />
+                    </div>
+                </section>
+                <section class="card-single" period="period2">
+                    <h4 class="year">1990年代</h4>
+                    <h2 class="title">
+                        1990年代，中国进一步深化经济体制改革，探索发展社会主义市场经济。1992年邓小平的南方谈话和中共十四大的召开，明确提出建立社会主义市场经济体制的目标，为中国的经济发展指明了方向</h2>
+                    <div class="content">
+                        <img src="https://www.gov.cn/jrzg/images/images/00123f3793250c2559ab01.jpg" alt="" />
+                    </div>
+                </section>
+                <section class="card-single" period="period3">
+                    <h4 class="year">2003-2007年</h4>
+                    <h2 class="title">
+                        进入21世纪初，中国开始注重乡村基础设施的建设和整治。2003-2007年，作为乡村基础整治阶段，重点推进村内道路硬化、垃圾收集、卫生改厕等工作，以改善农村生活环境和基础设施。</h2>
+                    <div class="content">
+                        <img src="https://www.mee.gov.cn/xxgk2018/xxgk/xxgk15/201908/W020190823467987809406.jpg" alt="">
+                    </div>
+                </section>
+                <section class="card-single" period="period4">
+                    <h4 class="year">2007-2010年</h4>
+                    <h2 class="title">
+                        2007-2010年，乡村整治工作进一步扩展，进入全面整治阶段。在这一阶段，整治内容拓展到面源污染治理、农房改造、农村公共设施建设，基本完成了全省村庄的整治任务。
+                    </h2>
+                    <div class="content">
+                        <img src="https://www.mee.gov.cn/xxgk2018/xxgk/xxgk15/201908/W020190823467988024207.jpg" alt="">
+                    </div>
+                </section>
+                <section class="card-single" period="period5">
+                    <h4 class="year">2011-2015年</h4>
+                    <h2 class="title">
+                        2011-2015年，美丽乡村建设行动计划开始实施，这一阶段不仅注重乡村的外在美，更强调内在美和可持续发展。同时，千万工程深化阶段，通过历史文化村落保护利用工作，推动乡村的整体发展和振兴
+                    </h2>
+                    <div class="content">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
