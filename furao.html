@@ -82,34 +82,34 @@
     }
 
     .right {
-  width: 300px;
-  /* 或者你希望的卡片宽度 */
-  height: 400px;
-  /* 或者你希望的卡片高度 */
-  border: 1px solid #ccc;
-  margin-right: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-}
+      width: 300px;
+      /* 或者你希望的卡片宽度 */
+      height: 400px;
+      /* 或者你希望的卡片高度 */
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+    }
 
-.left{
-  width: 60%;
-  /* 卡片宽度 */
-  height: 400px;
-  margin-left: 5%;
-  /* 左边距 */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .left {
+      width: 60%;
+      /* 卡片宽度 */
+      height: 400px;
+      margin-left: 5%;
+      /* 左边距 */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  float: left;
-  /* 浮动到左侧 */
-  border-radius: 10px;
-  /* 边框圆角 */
-  margin-right: 10px;
-  background-color: #FFF;
-}
+      float: left;
+      /* 浮动到左侧 */
+      border-radius: 10px;
+      /* 边框圆角 */
+      margin-right: 10px;
+      background-color: #FFF;
+    }
   </style>
 </head>
 
@@ -227,15 +227,16 @@
       <div class="main-card">
         <div class="row">
           <div class="left">
-            <h5 class="card-title text-center" style="margin-top: 10px;">浙江省各市县农、林、牧、渔业总产值</h5>
+            <h5 class="font2">2022年浙江省各区县第一产业产值</h5>
             <canvas id="myChart1"></canvas>
           </div>
           <div class="right">
-            <h5 class="card-title text-center" style="margin-top: 10px;">浙江省各市城乡居民人均<br>可支配收入对比</h5>
+            <h5 class="font2">2022年浙江省各市城乡居民<br>可支配收入对比</h5>
             <iframe src="./echarts/2-3.html" width="90%" height="100%" frameborder="0" scrolling="no"></iframe>
           </div>
         </div>
       </div>
+
       <script>
         const data1 = {
           labels: [
@@ -268,8 +269,6 @@
           }]
         };
 
-
-
         const config1 = {
           type: 'bar',
           data: data1,
@@ -287,22 +286,22 @@
           },
         };
 
-
         var myChart1 = new Chart(
           document.getElementById('myChart1'),
           config1
         );
 
-
       </script>
 
       <div class="main-card">
-        <h3>农村消费水平呈现</h3>
+        <h3 class="font1">农村居民生活水平</h3>
         <div class="row">
           <div class="left-card">
+            <h5 class="font2">2022年农村家庭耐用消费品拥有量(台、部、辆/百户)</h5>
             <iframe src="./echarts/2-1.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
           </div>
           <div class="right-card">
+            <h5 class="font2">拥有住房数的家庭数</h5>
             <iframe src="./echarts/2-2.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
           </div>
         </div>

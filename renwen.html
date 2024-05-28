@@ -59,6 +59,12 @@
       /* 添加鼠标指针 */
     }
 
+    .img-mid{
+      max-width: 100%; /* 图片宽度最大不超过其容器宽度 */
+  max-height: 100%; /* 图片高度最大不超过其容器高度 */
+  vertical-align: middle; /* 确保图片在其容器中垂直居中 */
+    }
+
     .card-body {
       padding: 20px;
     }
@@ -67,15 +73,8 @@
       padding: 20px;
       height: 500px;
     }
-
-
-    /* 自定义样式 */
-    .center-card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-
+    .card-half-1 {
+      height: 500px;
     }
 
     img {
@@ -86,34 +85,24 @@
       /* 水平居中并设置底部间距 */
     }
 
-    .scard {
-      display: flex; /* 使用Flexbox布局 */
-      flex-direction: column; /* 设置为垂直布局 */
-      align-items: center; /* 垂直居中对齐 */
-      text-align: center; /* 文字居中显示 */   
+    .card-half-1 img{
+      width: 320px;
+      height: auto;
+      margin-top: 100px;
+      margin-bottom: 0;
     }
+
+    /* 自定义样式 */
+    .center-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+    }
+
     
-    .card-title {
-      display: inline-block;
-    }
-    .button {
-      margin-left:5px;
-      display: inline-block; 
-      background-color: #68a8ec; 
-      color: #fff; 
-      padding: 0.07em 0.6em; /* 根据字体大小自适应按钮大小 */
-      text-decoration: none; 
-      border-radius: 12px; 
-      transition: background-color 0.5s ease; /* 添加过渡效果 */      
-    }
-    .button:hover {
-     background-color: #a371d4; /* 鼠标悬停时的背景颜色 */
-     text-decoration: none;
-    }   
-    .scard img {
-      margin: 0 8px; /* 设置左右边距像素 */
-      border-radius: 12px;
-    }
+    
   </style>
 </head>
 
@@ -231,12 +220,14 @@
       </script>
 
       <div class="main-card">
-        <h3>浙江省农村人文景观</h3>
+        <h3 class="font1">浙江省特色文化资源情况</h3>
         <div class="row">
           <div class="left-card">
+            <h5 class="font2">浙江省各市农村旅游、文化产业发展情况</h5>
             <iframe src="./echarts/3-2.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
           </div>
           <div class="right-card" style="width: 450px;">
+            <h5 class="font2">浙江省各市民族乡、老区数量统计</h5>
             <iframe src="./echarts/3-1.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
           </div>
         </div>
@@ -244,106 +235,77 @@
       </div>
 
       <div class="main-card">
-        <h2>乡村文化传承创新案例</h2>
+        <h2 class="font1">乡村文化传承创新案例</h2>
         <div class="card-container">
           <div class="card-row">
             <div class="scard">
-              <div>
-                <h2 class="card-title">湖州市安吉余村</h2>
-                <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/zj/202302/t20230214_939092.htm" class="button">详 情</a>
-              </div>
-              <div>
-                <a href="./maps/map.html"><img src="./img/安吉余.jpg" alt="生态农业示范基地"></a>
-              </div>
-              <div><p>“两山”理念样板生态文明村</p></div>              
+              <h2 class="font2">湖州市安吉余村</h2>
+              <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/zj/202302/t20230214_939092.htm" target="_blank"><img src="./img/安吉余.jpg" alt="生态农业示范基地"></a>
+              <p>“两山”理念样板生态文明村</p>
             </div>
             <div class="scard">
-              <div>
-                <h2 class="card-title">台州市下叶村</h2>
-                <a href="https://zjnews.zjol.com.cn/zjnews/tznews/201908/t20190809_10766470.shtml" class="button">详 情</a>
-              </div>
-              <div>
-                <a href="./maps/map.html"><img src="./img/下叶村.jpeg" alt="乡村旅游景点"></a>
-              </div>
-              <div><p>“生态立乡”民宿集聚村</p></div>  
+              <h2 class="font2">台州市下叶村</h2>
+              <a href="https://zjnews.zjol.com.cn/zjnews/tznews/201908/t20190809_10766470.shtml" target="_blank"><img src="./img/下叶村.jpeg" alt="乡村旅游景点"></a>
+              <p>“生态立乡”民宿集聚村</p>
             </div>
             <div class="scard">
-              <div>
-                <h2 class="card-title">宁波市新建村</h2>
-                <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/zj/201512/t20151230_786090.htm" class="button">详 情</a>
-              </div>
-              <div><a href="./maps/map.html"><img src="./img/新建村.jpg" alt="示例3"></a></div>
-              <div><p>生态文旅融合成文创小镇南洞艺谷</p></div>   
+              <h2 class="font2">宁波市新建村</h2>
+              <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/zj/201512/t20151230_786090.htm" target="_blank"><img src="./img/新建村.jpg" alt="示例3"></a>
+              <p>生态文旅融合成文创小镇南洞艺谷
+              </p>
             </div>
           </div>
           <div class="card-row">
             <div class="scard">
-              <div>
-                 <h2 class="card-title">嘉兴市横港村</h2>
-                 <a href="https://zj.chinadaily.com.cn/a/202005/29/WS5ed080d4a310f5a71bd1fbd6.html" class="button">详 情</a>
-              </div>
-              <div><a href="./maps/map.html"><img src="./img/横港村.jpg" alt="示例4"></a></div>
-              <div><p>艺术扎根打造文旅游融合新样板</p></div>
+              <h2 class="font2">嘉兴市横港村</h2>
+              <a href="https://zj.chinadaily.com.cn/a/202005/29/WS5ed080d4a310f5a71bd1fbd6.html" target="_blank"><img src="./img/横港村.jpg" alt="示例4"></a>
+              <p>艺术扎根打造文旅游融合新样板</p>
             </div>
             <div class="scard">
-              <div>
-                <h2 class="card-title">杭州市下姜村</h2>
-                <a href="https://www.zjds.org.cn/hz/37293.jhtml" class="button">详 情</a>
-              </div>
-              <div><a href="./maps/map.html"><img src="./img/下姜村.jpg" alt="示例5"></a></div>
-              <div><p>传承红色基因弘扬优秀传统文化</p></div>
+              <h2 class="font2">杭州市下姜村</h2>
+              <a href="https://www.zjds.org.cn/hz/37293.jhtml" target="_blank"><img src="./img/下姜村.jpg" alt="示例5"></a>
+              <p>传承红色基因弘扬优秀传统文化</p>
             </div>
             <div class="scard">
-              <div>
-                <h2 class="card-title">温州市让川村</h2>
-                <a href="https://m.thepaper.cn/baijiahao_7371987" class="button">详 情</a>
-              </div>
-              <div><a href="./maps/map.html"><img src="./img/让川村.jpg" alt="示例6"></a></div>
-              <div><p>“赏”古老畲文化绘如画村庄景</p></div>
+              <h2 class="font2">温州市让川村</h2>
+              <a href="https://m.thepaper.cn/baijiahao_7371987" target="_blank"><img src="./img/让川村.jpg" alt="示例6"></a>
+              <p>“赏”古老畲文化绘如画村庄景</p>
             </div>
           </div>
           <div class="card-row">
             <div class="scard">
-              <div>
-                <h2 class="card-title">衢州市大陈村</h2>
-                <a href="https://www.crnews.net/xf/g/943378_20211223013433.html" class="button">详 情</a>
-              </div>
-              <div><a href="./maps/map.html"><img src="./img/大陈村.jpg" alt="示例7"></a></div>
-              <div><p>中国村歌发源地</p></div>
+              <h2 class="font2">衢州市大陈村</h2>
+              <a href="https://www.crnews.net/xf/g/943378_20211223013433.html" target="_blank"><img src="./img/大陈村.jpg" alt="示例7"></a>
+              <p>中国村歌发源地</p>
             </div>
             <div class="scard">
-              <div>
-                <h2 class="card-title">嘉兴市胜丰村</h2>
-                <a href="https://www.xiuzhou.gov.cn/art/2022/8/9/art_1229411941_4963183.html" class="button">详 情</a>
-              </div>
-              <div><a href="./maps/map.html"><img src="./img/胜丰村.jpg" alt="示例8"></a></div>
-              <div><p>非遗扎根打造乡村振兴新样板</p></div>
+              <h2 class="font2">嘉兴市胜丰村</h2>
+              <a href="https://www.xiuzhou.gov.cn/art/2022/8/9/art_1229411941_4963183.html" target="_blank"><img src="./img/胜丰村.jpg" alt="示例8"></a>
+              <p>非遗扎根打造乡村振兴新样板</p>
             </div>
             <div class="scard">
-              <div>
-                <h2 class="card-title">杭州市龙门秘境村落</h2>
-                <a href="https://www.chinanews.com.cn/sh/2022/07-02/9794182.shtml" class="button">详 情</a>
-              </div>
-              <div><a href="./maps/map.html"><img src="./img/龙门秘境.jpg" alt="示例9"></a></div>
-              <div><p>村落景区理念注入传统文化</p></div>
+              <h2 class="font2">杭州市龙门秘境村落</h2>
+              <a href="https://www.chinanews.com.cn/sh/2022/07-02/9794182.shtml" target="_blank"><img src="./img/龙门秘境.jpg" alt="示例9"></a>
+              <p>村落景区理念注入传统文化</p>
             </div>
           </div>
         </div>
       </div>
       <div class="main-card">
+        <h3 class="font1">浙江省联合国级非物质文化遗产介绍</h3>
         <div class="container-fluid">
           <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="card">
-                <div class="card-half">
-                  <img src="./charts/3_tree.jpg" class="card-img-top" alt="图片">
+                <div class="card-half-1">
+                  <img src="./charts/3_tree.jpg" class="img1" alt="图片">
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
               <div class="card">
-                <div class="card-half">
-                  <iframe src="./charts/3_culture/index.html" width="100%" height="100%" frameborder="0"></iframe>
+                <div class="card-half" style="background-color: #f7f8fd;">
+                  <iframe src="./charts/3_culture/index.html" width="100%" height="100%" frameborder="0" style="overflow-x: hidden"></iframe>
                 </div>
               </div>
             </div>

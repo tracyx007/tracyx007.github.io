@@ -185,6 +185,7 @@
       <div
         style="border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 20px; width: 80%; margin: 0 auto;">
         <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <h5 class="font2">2012-2022年浙江省乡村最低生活保障和救济情况</h5>
         <div id="container" style="width: 100%; height: 500px;"></div>
       </div>
 
@@ -202,14 +203,7 @@
         var option;
 
         option = {
-          title: { // 添加标题
-            text: '乡村最低生活保障和救济情况（2012-2022年）', // 标题内容
-            left: 'center', // 标题居中
-            textStyle: { // 标题样式
-              fontSize: 18, // 标题字体大小
-              fontWeight: 'bold' // 标题字体粗细
-            }
-          },
+          
           grid: { // 图表绘图区域的布局
             top: 60, // 图表绘图区域的上边距，调整这个值来放置标题在图例的上方
             bottom: 50, // 图表绘图区域的下边距
@@ -331,15 +325,18 @@
     </div>
   </div>
   <div class="main-card">
-    <h3>浙江省法治村建设成果</h3>
+    <h3 class="font1">浙江省法治村建设成果</h3>
     <div class="left-card">
+      <h5 class="font2">浙江省各批“全国民主法治示范村”入选情况</h5>
       <iframe src="./echarts/4-1.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
     </div>
     <div class="right-cards">
       <div class="card-small">
+        <h5 class="font2">2022年浙江省各市善治示范村与善治村数量</h5>
         <iframe src="./echarts/4-2.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
       </div>
       <div class="card-small">
+        <h5 class="font2">2023年浙江省各市入选省级民主法治村数量</h5>
         <iframe src="./echarts/4-3.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
