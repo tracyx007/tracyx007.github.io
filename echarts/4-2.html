@@ -1,0 +1,119 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category&code=PYBwLglsB2AEC8sDeBYAULWkwBsCmAXMuppmHgB5hEDkATAAx12AueoJq2g-jaCA7oCAqgQHqAQ1UDdNoC5PQMDBgRXNAcHLCJgB1NA84k0ANLAD0a2IBezQA2mgcAtAGRklSYULQCsAUhXrNgYBjALqaHAsvKA7f2OZ8AM2qwaAYzxocgAnGltYQFEdQFo5QD4zEUNjAF9lY1NgHEgQIlQMExCIAHNCvBDaAEMKCABnFQ9YSpqABWAIYNKc-rIATxBCP2qAC3KAE2AAdxp6pOTUvPwS6BHOvMwR8rByogBtGmFxCRs9oUOAXVUNWEBv20ACpUA_tUBo-UAYf8AwJUBqJUBjuUALCMASOUBvHwkgBC9eqmbJ-ACMDGsEUcjzcs2MhQKy2Iq1g3l8NAAzNY5qRYAVCoNMQAWXH1ABGwDApgAtrQcXU0f4YJs2gAZcoUvA4IhgEIAVzwCLyFAAglVqit8WBev0aAA3co4IU2S6AClc5IB1bUAOvKALjkKIAXeMAIW5yQB2xpTgAKluUQt0AOLlMHbBiqBgAOgY4NOIsw3QlNWlJjltH8GzwhWAdrVmm6hvNgHozQAM6oAuZUAsCqAB896utNjsun5ALbmgD3dPhM_GYGiAQO1AEc2pbx5ZogEo7EtlhuANTsW_X8TRAJBqgBdFOv5miAWb8B63u4BFxMAcsqDtEVwBGEZ2h4B8IMAjjqz8t-QAPyku535ALxygBYbUv1H15FLGaqlCB4KWwbb1XKb6DlWny_aSGOwQA03oAAOUAhuaAI_mgBtTnc-ayn0tAUra46kBA5C0gAyrK-BBpuLI4FGtAhIU0EABR0OY5iqAAnCRqgAOzgm67oUQAlOElyAH3RriAKK2gBFfoATkH5hee45ls97guCWKkRRqjgnQYmwOCAAc1HSRRxHSeYrqwIRqnghRJLiQAbOJWJ6bAFFYqcESAJ_agApeua0xdqiz6vu-Jxft-gAxckBoHgSGfjQWEtmYPBeBISh_RPpusAYVhfg4fhhFKXQ4JKapHr0YxmgsaxgAjedxe68Zu_E7BJcVYnQukaaoJJxUpkLyZpNXkdJBnieCOmmZclnWWiMx5GeSQANxAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    option = {
+     
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        data: ['善治示范村', '善治村'], // 添加图例，分别代表两类村庄
+        textStyle: {
+          fontSize: 10,// 调整图例文字大小
+        },
+        itemWidth: 10, // 调整图例项的宽度
+        itemHeight: 5, // 调整图例项的高度
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: 50,
+        top:20,
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value', // 用数字作为x轴的数据
+        boundaryGap: [0, 0.01]
+      },
+      yAxis: {
+        type: 'category', // y轴数据是地区名称
+        data: [
+          '杭州市',
+          '宁波市',
+          '温州市',
+          '湖州市',
+          '嘉兴市',
+          '绍兴市',
+          '金华市',
+          '衢州市',
+          '舟山市',
+          '台州市',
+          '丽水市'
+        ]
+      },
+      series: [
+        {
+          name: '善治示范村', // 第一条柱状图
+          type: 'bar',
+          itemStyle: {
+            color: 'rgba(255, 99, 71, 0.7)' // 设置浅红色
+          },
+          data: [113, 97, 127, 181, 175, 150, 250, 174, 16, 136, 73] // 对应数据
+        },
+        {
+          name: '善治村', // 第二条柱状图
+          type: 'bar',
+          itemStyle: {
+            color: 'rgba(251, 186, 42, 0.7)' // 设置浅黄色
+          },
+          data: [125, 232, 160, 1, 45, 25, 101, 171, 19, 136, 116] // 对应数据
+        }
+      ]
+    };
+
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+
+</html>

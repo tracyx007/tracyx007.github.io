@@ -1,0 +1,111 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-stack&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOSCatoPo2gOYqBYcvYIrmgh_KD2BoGjKgIrGCLiYFSjQKaKgCH_A_XKBhRUCQ_5SIBfADREwwYFkggCqYhgBOEAOYGcuqgENSEAM6UlOi9YAKwCNDAmtRHWACeIfLCUVgAWZgAmwADusjpy8nawuMbQYVpmWIbQVPoGwWC26AD0hbCAf2qA0fKALDaAznqAn9qACvmAnaaA8PqAfdGAdv6AXHKAz8oNXrA5eQQATAAMCjrExWXlgLuxgN2e3YDl8oAhbgv9KpqwAIyjikQG-qmEOrgAZhSBAMwApLb9g5eUACx3CegARsBgKgC2VLd7joAMYwMBmVwAGTMHxwWAIYF0AFccPEiKQAIKWKwEADa_W0k18_iowLM7gMwF0PiBkzC5LMeMogFtzQB7uoAgPQKlEAgdqAI5tORNKIBKOw5XMAanaiwWASDVAC6KAsCgFm_OVcviAOWUBZRAEYRksogHwgwCOOhrAA_KOsAvHKVTkAXX6cXQloSPix1jxBP66GJAUoADd0iiYsRbbB7UQrCYIDgcbB8TpCTpoGZfp7AESxgH5TYS07x-T0fMy6DPEKzg4EAayoGLC-fQOF-IFCVmdJ0m6DOwGBSMjQTDEf9sXexHp4Lx2yuADoAJwKYYj7YKK4ADgUY5HADZJwB2ScjgCsCi3I-GCmeClG09n27PW-tvddTfjiaogD5PQBY8jxADTm6b77qzVBzec_sELMwSzLCt_wHRkoyuZcVwUOcRyuBRtmeGCt22cddwPZc1xHBcxhww8Rw3E9Vzgg9RzXYMm2rWszHrSNY0mFs2w7UN9G7N1YEDdAuNgLwiGtOQAG4gA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    option = {
+      
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        align: 'right',  // 图例水平对齐方式设置为右对齐
+        right: 20,       // 图例距离右侧的距离
+        top: 5
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '20%',
+        top:'15%',
+        containLabel: true
+      },
+      xAxis: [
+        {
+          type: 'category',
+          data: ['杭州市', '宁波市', '温州市', '湖州市', '嘉兴市', '绍兴市', '金华市', '衢州市', '舟山市', '台州市', '丽水市']
+        }
+      ],
+      yAxis: [
+        {
+          type: 'value'
+        }
+      ],
+      series: [
+        {
+          name: '财政投入',
+          type: 'bar',
+          stack: 'Ad',
+          emphasis: {
+            focus: 'series'
+          },
+          data: [13.9, 2.1, 38, 9.6, 27, 2.5, 5.2, 4, 0.1, 3.5, 3.5],
+          color:'#CDC3E0',
+        },
+        {
+          name: '社会资本投入',
+          type: 'bar',
+          stack: 'Ad',
+          data: [36.6, 8.3, 14.6, 51.9, 52, 67.8, 20.8, 4.7, 0.6, 8.2, 3.7],
+          color:'#A3B7DE',
+          emphasis: {
+            focus: 'series'
+          }
+        }
+
+
+      ]
+    };
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+
+</html>

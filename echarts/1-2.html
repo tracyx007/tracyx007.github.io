@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://at.alicdn.com/t/c/font_4539841_rojai70ri8o.js"></script>
+    <title>浙江省农业数据</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8)), url('../background/经济.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .container {
+            max-width: 800px;
+            padding: 50px;
+            height: 80vh;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        h3 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 auto;
+            font-size: 20px;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromright {
+            0% {
+                opacity: 0;
+                transform: translateX(50%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section0 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(225, 246, 222, 0.5);
+            animation: slideInFromLeft 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section1 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(225, 246, 222, 0.5);
+            animation: slideInFromLeft 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(255, 255, 255, 0.5);
+            animation: slideInFromright 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(225, 246, 222, 0.5);
+            animation: slideInFromLeft 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .icon1 {
+            height: 80px !important;
+            width: 80px;
+        }
+
+        .icon2 {
+            height: 60px !important;
+            width: 60px;
+        }
+
+        .icon3 {
+            height: 60px !important;
+            width: 60px;
+        }
+
+        p {
+            font-family: 宋体;
+            font-size: 18px;
+            display: inline;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .font2 {
+            font-family: "Arial", sans-serif;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section0">
+            <h3 class="font2">乡村产业蓬勃发展</h3>
+        </div>
+        <div class="section1">
+            <svg class="icon1" aria-hidden="true">
+                <use xlink:href="#icon-zongchanzhi"></use>
+            </svg>
+            <p>五年里，累计创建国家、省级特色农业强镇35个、109个，国家现代农业产业园9个、省级现代农业园区90个。</p>
+        </div>
+        <div class="section2">
+            <p>全年乡村旅游经营总收入从2018年的366.5亿元到2022年的514.6亿元</p>
+            <svg class="icon2" aria-hidden="true">
+                <use xlink:href="#icon-dushinongye"></use>
+            </svg>
+        </div>
+        <div class="section3">
+            <svg class="icon3" aria-hidden="true">
+                <use xlink:href="#icon-xiangcunchanye"></use>
+            </svg>
+            <p>建成82条单条产值超10亿元、总产值超2500亿元的示范性农业全产业链。</p>
+        </div>
+    </div>
+</body>
+
+</html>

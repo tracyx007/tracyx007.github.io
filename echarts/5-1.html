@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杭州市水质占比变化情况（2012-2022年）</title>
+<!-- ECharts -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+</head>
+<body>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="container" style="width: 100%; height: 500px;"></div>
+
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('container'), null, {
+    renderer: 'svg'
+  });
+
+  var option;
+
+  option = {
+    
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      top: 40, // 标题距离顶部的距离
+      data: ['一等', '二等', '三等', '四等', '五等', '劣五等']
+    },
+    xAxis: {
+      type: 'category',
+      data: ['2019', '2020', '2021', '2022', '2023']
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: {
+        formatter: '{value}%'
+      }
+    },
+    series: [
+      {
+        name: '一等',
+        type: 'line',
+        data: [13.6, 18.1, 18.4, 18.5, 15.4],
+        color:'#50853B'
+      },
+      {
+        name: '二等',
+        type: 'line',
+        data: [38.9, 31.7, 34.7, 37.9, 47.6],
+        color:'#57B952'
+      },
+      {
+        name: '三等',
+        type: 'line',
+        data: [31.7, 34.4, 34.4, 33.1, 28.8],
+        color:'#B8DB9E'
+      },
+      {
+        name: '四等',
+        type: 'line',
+        data: [8.1, 9, 7.8, 7.8, 6],
+        color:'#75BD89'
+      },
+      {
+        name: '五等',
+        type: 'line',
+        data: [6.8, 6.3, 4.1, 2, 1.9],
+        color:'#DDE89C'
+      },
+      {
+        name: '劣五等',
+        type: 'line',
+        data: [0.9, 0.5, 0.7, 0.7, 0.4],
+        color:'#B6BD96'
+      }
+    ]
+  };
+
+  if (option && typeof option === 'object') {
+    myChart.setOption(option);
+  }
+
+  // 在窗口大小变化时重新调整图表大小
+  window.addEventListener('resize', function () {
+    myChart.resize();
+  });
+</script>
+
+</body>
+</html>

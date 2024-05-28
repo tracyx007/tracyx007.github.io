@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 center-card">
+      <div class="card" style="width: 800px;">
+        <a href="./成品图/3.jpg" class="card-img-link" title="点击图片预览" target="_blank">
+          <img src="./成品图/3.jpg" class="card-img-top" alt="图片">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">富饶乡村</h5>
+          <p class="card-text">乡村振兴，关键是产业要振兴。要鼓励和扶持农民群众立足本地资源发展特色农业、乡村旅游、庭院经济，多渠道增加农民收入。
+          </p>
+          <a href="http://www.qstheory.cn/zhuanqu/2022-04/13/c_1128554998.htm#:~:text=%E6%80%BB%E4%B9%A6%E8%AE%B0%E5%BC%BA%E8%B0%83%EF%BC%9A%E5%85%A8%E9%9D%A2,%E4%BA%AB%E4%BA%A7%E4%B8%9A%E5%A2%9E%E5%80%BC%E6%94%B6%E7%9B%8A%E3%80%82"
+            class="btn btn-primary" target="_blank">了解更多</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Magnific Popup JavaScript -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.card-img-link').magnificPopup({
+      type: 'image',
+      closeOnContentClick: true,
+      closeBtnInside: false,
+      callbacks: {
+        open: function () {
+          $('body').addClass('mfp-open');
+        },
+        close: function () {
+          $('body').removeClass('mfp-open');
+        }
+      }
+    });
+
+    // 点击图片关闭预览
+    $('.mfp-img').click(function () {
+      $.magnificPopup.close();
+    });
+  });
+</script>

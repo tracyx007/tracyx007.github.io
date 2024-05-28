@@ -1,0 +1,105 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-animation-delay&code=G4QwTgBAJiAuICYIF4IG0CwAoCEEDoBWATgBo98B2AZnIIA4797GJa3z3r8AGANk74AjF3wIALIOoC2-aq26FJswoUGFK6srL6i-M7nwVUhg48U0RxvS9Z6s7260ITlnaq8KdjXniW7EPa2og_HF2a3Fla0Jfa10AvmiqAMoZa0pbZjjmUPos4g9CXlMIYp5lcqLeVmKRcjrK4SahaqFtYupLYvF6bABdAG5sbAB7AAdYAEtRgDsUCABvbFxp2AAbAFMALiWV3AhYTYAPWF2AckAvL0AUG0AKWMB5xMBwY0AHU3P9gF9Sfa2Ac03ZqC7ZY4A4weC7NBXO73QA_foAIFRe536Hy-INgo1G6wARqNjkD9rgAPSEiAATwuONg6IAtudUQcIAAzTZwACuYB2exBDOpIB-UwAxgAVUnjTnAhkM2CizmQgDO8AFAGskQSDp81bgwSAAGpTTYAdyBGu5BzlIGAmwAgnKAJK8v7400M8ZTY6bdYAJTgM12CE1EHeaqDIJNqwx62m42N9IgxytxymcqdDO1EIDACJAA82gC8MwD9yhnyBnAJn5gEmbQBAeoWIBnAEIJgBgzAtFwBheoBhRUb1cAAPqANGV2xnAFK6gHWbXuAezNAIHavcA4aaABCNe4BEuUAMSq9wB-5oBmNN7gGfbQCR2r3AJHOgHrnStFwCY_rPe4A8W0ALJqALmUqxnAJtygFEdXuASjtALU6h-rgD0XTcfjOARp1AEcdXtAAWPbdb0AJXTAAZXXtAA4bQBINV7QAWOUAd1tf0AZz011vQBZoMAdWVe0ABTlAFA7X9R2Q3tAA49IDb0AQxiqKLQAvvUAdv1f0ASk1AAflXtAEg5QAL1N7QAHRUAKrtf0ASU0uxvItAAbTBtb2LQB6O1_QAcORXX9ADNbQB9G17QAza0ASTlez7QA93V_TdAEgVXs0MANTtf0ACUMhNvQAP6MACrNf0Ywje2LQAOO17bTABk5X9AAULQAEvV7ODABDVXtAH9UwAXRV7QBNeUALc1f2Q0dfzUgDEsABbdez8wBDOV_GDAHa9Ss1X6WNcDlcZ1imWAABkplmcUAzlAALUYjSZEB1jlTZg1KiAQETOVqpALEPRTSUwFGeAjl2cRCGDFF9lJBMkzG3BqTqv0iAWkEurAfVk3QNUJUlWYQGpTkoQeeFEV61YZQpcA6QDNNoDgRBbogKrNmpABlaUtlWyUBUxUYwAuABiegeAAIXoYghDeZ1Aw-77xiakA5RWrlJQORlRgFVkDvOXb9sRnGw0lEBZimXlpjmAARD0QHJJlWVmAU6fmAAKKYoGOABKbGcYgDlYHZeZeeOCAACoICEHhhiRkMGQpkr9ipmmfTmABRDG6p-C4mYVQUAHlWVgJ6QQ12mZlmRn1mZgBVcYwU5Rk2Y522IB5vnBeO3BRfFz6-ZlspFdwEN3kGIA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%;bottom:10px"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    var data2 = [
+  2.59, 2.73, 2.8, 2.88, 3, 3, 3, 3.06, 3.13, 3.24, 3.36, 3.38, 3.54, 3.55, 3.57, 3.59, 3.63, 3.66, 3.68, 3.71, 3.8, 3.97, 4.07, 4.08, 4.09, 4.12, 4.15, 4.19, 4.22, 4.24, 4.25, 4.35, 4.43, 4.44, 4.52, 4.63, 4.64, 4.7, 4.76, 4.77, 4.82, 4.85, 4.87, 4.95, 5.01, 5.04, 5.05, 5.08, 5.13, 5.14, 5.14, 5.15, 5.19, 5.37, 5.48
+];
+
+option = {
+  
+  legend: {
+    data: ['空气质量综合指数'],
+    top:15,
+    left: 'center',  // 图例水平居中
+    itemWidth: 20,   // 图例项宽度
+    itemHeight: 10,  // 图例项高度
+    data: ['空气质量综合指数']
+  },
+  
+ 
+  tooltip: {},
+  xAxis: {
+    data: [
+      "泰顺县", "龙泉市", "遂昌县", "庆元县", "开化县", "嵊泗县", "景宁县", "文成县", "云和县", "松阳县", "淳安县", "玉环市", "缙云县", "洞头区", "仙居县", "温岭市", "瑞安市", "岱山县", "磐安县", "青田县", "永嘉县", "临海市", "平阳县", "苍南县", "乐清市", "宁海县", "常山县", "象山县", "建德市", "天台县", "三门县", "兰溪市", "奉化区", "新昌县", "龙港市", "东阳市", "浦江县", "武义县", "嵊州市", "安吉县", "平湖市", "慈溪市", "诸暨市", "德清县", "龙游县", "义乌市", "桐庐县", "嘉善县", "长兴县", "余姚市", "海宁市", "江山市", "海盐县", "桐乡市", "永康市"
+    ],
+    splitLine: {
+      show: false
+    },
+    axisLabel: {
+      rotate: 45
+    }
+  },
+  yAxis: {
+    min: 2.5
+  },
+  series: [
+    {
+      name: '空气质量综合指数',
+      type: 'bar',
+      data: data2,
+      itemStyle: {
+        color: '#80B891'
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      animationDelay: function (idx) {
+        return idx * 10;
+      }
+    },
+  ],
+  animationEasing: 'elasticOut',
+  animationDelayUpdate: function (idx) {
+    return idx * 5;
+  }
+};
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

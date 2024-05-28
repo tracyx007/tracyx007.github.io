@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECharts图表</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
+</head>
+
+<body>
+
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  <div id="container" style="width: 400px;height: 200px;"></div>
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'svg'
+    });
+    var option;
+    option = {
+      title: {
+        text: '互联网网络零售占比',
+        left: 'center',
+        textStyle: {
+          fontSize: 15,
+          fontWeight: 'bold'
+        }
+      },
+      xAxis: {
+        data: ['上海', '湖北', '江苏', '湖南', '浙江', '广东', '安徽', '陕西', '福建', '甘肃'],
+        axisLabel: {
+          inside: true,
+          color: '#fff'
+        },
+        axisTick: {
+          show: false
+        },
+        axisLine: {
+          show: false
+        },
+        z: 10
+      },
+      yAxis: {
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          color: '#999'
+        }
+      },
+      grid: {
+        top: '20%',   // 距离容器顶部的距离
+        bottom: '10%',   // 距离容器底部的距离
+        left: '10%',    // 距离容器左侧的距离
+        right: '10%'    // 距离容器右侧的距离
+      },
+      dataZoom: [
+        {
+          type: 'inside'
+        }
+      ],
+      series: [
+        {
+          type: 'bar',
+          showBackground: true,
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#83bff6' },
+              { offset: 0.5, color: '#188df0' },
+              { offset: 1, color: '#188df0' }
+            ])
+          },
+          emphasis: {
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: '#2378f7' },
+                { offset: 0.7, color: '#2378f7' },
+                { offset: 1, color: '#83bff6' }
+              ])
+            }
+          },
+          data: [19.4, 21.8, 26.1, 17.6, 42.1, 27.5, 22.4, 15.8, 15.8, 16.3]
+        }
+      ]
+    };
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+
+</body>
+
+</html>

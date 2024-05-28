@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center; /* 水平居中 */
+      align-items: center;    /* 垂直居中 */
+    }
+    #container {
+      width: 80%;  /* 你可以根据需要调整宽度 */
+      height: 80%; /* 你可以根据需要调整高度 */
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+      angleAxis: {
+        type: 'category',
+        data: ['杭州市', '宁波市', '温州市', '嘉兴市', '湖州市', '绍兴市', '金华市', '衢州市', '舟山市', '台州市', '丽水市']
+      },
+      radiusAxis: {},
+      polar: {},
+      series: [
+        {
+          type: 'bar',
+          data: [77043, 76690, 73326, 72096, 71044, 76199, 69626, 57465, 71965, 70737, 55784],
+          coordinateSystem: 'polar',
+          name: '城镇居民人均可支配收入 (元)',
+          itemStyle: {
+            color: '#F3DC96' // 设置系列的颜色
+          },
+          emphasis: {
+            focus: 'series'
+          }
+        },
+        {
+          type: 'bar',
+          data: [45183, 45487, 38482, 46276, 44112, 45709, 35630, 31468, 45924, 37700, 28470],
+          coordinateSystem: 'polar',
+          name: '农村居民人均可支配收入 (元)',
+          itemStyle: {
+            color: '#FCAD36' // 设置系列的颜色
+          },
+          emphasis: {
+            focus: 'series'
+          }
+        }
+      ],
+      legend: {
+        show: true,
+        data: ['城镇居民人均可支配收入 (元)', '农村居民人均可支配收入 (元)'],
+        left: 50,
+        orient: 'vertical',
+        top: 5 // 图例垂直居中
+      }
+    };
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

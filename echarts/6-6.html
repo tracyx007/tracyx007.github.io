@@ -1,0 +1,103 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=pie-borderRadius&code=PYBwLglsB2AEC8sDeBYAULTkwBsCmAXMuplngB5hEDkgOYqDlcoIMqgFLGDziYJHagFoqC_8YPV2gh_KB7A0BoyoHDnQBtZgOLlOgX7VAznqBxdUAsNnMAhboEB3QL9ygKeVAbopCxgCH-ApIEh_6iVgBfADSWwwYDkggiqDKTAAnCAHNfeF40EGB4ALYWHraW-AHQACZulligNACsxtR2Hpj4AGZUsNQAxnjQoV6RmNEeAM6BEHi1RADaycQ5pNAAhmGERQCCxaW1tbAAYl7AEdmkngCeIP3UII1Z7Zhe3fEQAK7NsC3UACwADJk2RQDs59QAurNzsN0AbsAQ8QAy3QBGeDgAeRegRw3VcsDy3Rw9UecxC4QAymB5vgkp05j9gF54oEAErbPYHACMp1hT0x2MCAGEnFiaABiPJM9bo0gUnFeADqHzAAAsiAAmDbWMm5X7_NFPUi1XnAADuREh0LwotIIGAtRCUGgNFK5UCVSeNSl4RAvO6moO7ilYr-OElNswMvlRG8uxVwrmeRgYAREAAXv0zqqvT7OXg_LzCtRMTh4oapVZhcanqC7Z8INB-tabc6FRCofVk6r4t0wN1Wp7kLAXlD3UQAGxXAB0RMuPT6NEAmraAfRtqCKq0ga3X-gKW2l271loB0ZUANXL9lNSoe1nD12AAZiJzeOk87RUAlJqAUlsFyHqyu1wAOFvr3fLQBQcoB3WxPg-Hq_6aQFrdvNB7gHmg5-spgy4jkQ67HM2N6wB2yyAPGegBfegBjrAW-oENs2DbfkUgBqdtOiE2sha4ChezYCph1BYYA6sp4Uur5ruu67NhOUFTjQgD-eoAOHLUU8BGjsRkHQTQgD-kYA86FcZgdztEmHgSWgVgANxAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+   title: {
+    text: '农产品质量安全追溯信息化率高于全国平均水平的省份及其信息化率（%）'
+  },
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: 40,
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 67.1, name: '浙江' },
+        { value: 27.5, name: '北京' },
+        { value: 31.4, name: '天津' },
+        { value: 87.3, name: '上海' },
+        { value: 52.1, name: '江苏' },
+        { value: 34.3, name: '福建' },
+        { value: 36.6, name: '湖北' },
+        { value: 28.2, name: '湖南' },
+        { value: 33.5, name: '广东' },
+        { value: 28.3, name: '西藏' },
+      ]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

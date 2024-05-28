@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://at.alicdn.com/t/c/font_4539841_phbbocsctvk.js"></script>
+    <title>浙江省农业数据</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8)), url('../background/人文.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .container {
+            max-width: 800px;
+            padding: 50px;
+            height: 80vh;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromright {
+            0% {
+                opacity: 0;
+                transform: translateX(50%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section0 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(221, 224, 247, 0.5);
+            animation: slideInFromLeft 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section1 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(221, 224, 247, 0.5);
+            animation: slideInFromLeft 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(255, 255, 255, 0.5);
+            animation: slideInFromright 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(221, 224, 247, 0.5);
+            animation: slideInFromLeft 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .icon1 {
+            height: 60px !important;
+            width: 60px;
+        }
+
+        .icon2 {
+            height: 60px !important;
+            width: 60px;
+        }
+
+        .icon3 {
+            height: 60px !important;
+            width: 60px;
+        }
+
+        p {
+            font-family: 宋体;
+            font-size: 18px;
+            display: inline;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        h3 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 auto;
+            font-size: 20px;
+        }
+
+        .font2 {
+            font-family: "Arial", sans-serif;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section0">
+            <h3 class="font2">和美乡村加速呈现</h3>
+        </div>
+        <div class="section1">
+            <svg class="icon1" aria-hidden="true">
+                <use xlink:href="#icon--otherbuildings"></use>
+            </svg>
+            <p>美丽乡村示范县从2018年23个增加到2022年的70个，示范乡镇从218年300个增加到2022年724个。</p>
+        </div>
+        <div class="section2">
+            <p>建成农村生活垃圾资源化处理站点1217个，农村生活垃圾基本实现“零增长”和“零填埋”。</p>
+            <svg class="icon2" aria-hidden="true">
+                <use xlink:href="#icon-ic_zhnc"></use>
+            </svg>
+        </div>
+        <div class="section3">
+            <svg class="icon3" aria-hidden="true">
+                <use xlink:href="#icon-jibennongtianbaoyouliang"></use>
+            </svg>
+            <p>城乡同质饮水基本实现，农村饮用水达标人口覆盖率超过99.6%。</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=pie-borderRadius&code=PYBwLglsB2AEC8sDeAoW7JgDYFMBcya6sYOAHmAQOSAOpoOraghnKCK5oIvKgqjqAsNoM56gG1mBxcoAtFQL9qXQOLq3QCFugQHdAv3KAp5UBuiu25UiAXwA0RMMGBZIIAqmIkAThADmFnKeoRSAW1XpNRXNegATI0QyhqAKwApFRaJrgAZpSwVADGONCkps6wrugAzjYQOOkEANq-hCbo0ACGDvgxAIKx8enpsABipsBOYcVgAJ4glVQg2aGF6KalnhAArrmweVQALAAMIRoxAOyLVAC67SalAG7AEJ4AMqUARjhYAPK7NlilhrARpViZ28T2OA4Ayl24PsXEU7AUyeGwAJVGEymAEZ5m8TECQTYAMJ6YHUADEEWxgwB6ERoNMAHVDmAABYEABMQ1S8Ngd3OWH-ePSZOAAHcCE8Xjg6egQMB0vYoNBqPFEjYUiY0sVPiAyaUhVNjHiGRdmXjYKyOQQwKZxryaSYIjAwF8IAAvSoLPnEE2JIk4Sxk6JUIFYTxS4pqGky8JnC5HCDQSoqgHazmPZ6ZX10zylMClfJG5CwXbPA0EABsAA4AHQAZmWZQq1EAmraAfRsqLSU0g0xnrfM85Ti-VeoB0ZUANXLVv3FOvprCZ2CzSl56Gt0sxQCUmoBSWx7tv7DYIARWeZWE96gCg5QDutvPa_XB5UAvn17AS70K4B5oL3msXh-XAQ31EAkdqAXv0b3i70OFmOnzFAPGegBfeh-AJftaLZnm21AVoA_pEgX2B5DgEo4Qee1CAGp27bwSYYEELMATNn-VDoYA6srYcQuHDlmeazERgD-eoAOHLkeglGzEWkGTlQgCziYAYXrkRshQ-ugAlqAA3EAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+   title: {
+    text: '数字乡村发展水平高于全国平均水平的省份及其发展水平'
+  },
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: 40,
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 68.3, name: '浙江' },
+        { value: 40.2, name: '北京' },
+        { value: 42.1, name: '天津' },
+        { value: 57.7, name: '上海' },
+        { value: 58.7, name: '江苏' },
+        { value: 55, name: '安徽' },
+        { value: 40.1, name: '福建' },
+        { value: 42, name: '江西' },
+        { value: 52.2, name: '湖北' },
+        { value: 45.2, name: '湖南' },
+        { value: 46.4, name: '广东' },
+        { value: 43, name: '重庆' },
+      ]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

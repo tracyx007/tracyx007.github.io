@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://at.alicdn.com/t/c/font_4536403_u5mnv3uv8sj.js"></script>
+    <script src="https://at.alicdn.com/t/c/font_4539782_pudk9vw33h.js"></script>
+    <title>浙江省农业数据</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8)), url('../background/总.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h3 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 auto;
+            font-size: 20px;
+        }
+
+
+        .container {
+            max-width: 800px;
+            padding: 50px;
+            height: 80vh;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            margin: 0 auto;
+            /* 让容器居中 */
+        }
+
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromright {
+            0% {
+                opacity: 0;
+                transform: translateX(50%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+        .section1 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(188, 245, 235, 0.5);
+            animation: slideInFromLeft 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(255, 255, 255, 0.5);
+            animation: slideInFromright 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(188, 245, 235, 0.5);
+            animation: slideInFromLeft 1s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .icon1 {
+            height: 100px !important;
+            width: 120px;
+        }
+
+        .icon2 {
+            height: 100px !important;
+            width: 150px;
+        }
+
+        .icon3 {
+            height: 70px !important;
+            width: 70px;
+        }
+
+        .font2 {
+            font-family: "Arial", sans-serif;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        p {
+            font-family: 宋体;
+            font-size: 18px;
+            display: inline;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section1">
+            <h3 class="font2">稳产保供底盘牢固</h3>
+        </div>
+        <div class="section1">
+            <svg class="icon1" aria-hidden="true">
+                <use xlink:href="#icon-liangshi"></use>
+            </svg>
+            <p>2022年，粮食播种面积1530.7万亩、总产124.2亿斤，创近7年新高，夏粮、夏油、早稻生产获农业农村部通报表扬。</p>
+        </div>
+        <div class="section2">
+            <p>累计建设高标准农田并上图入库1987万亩(含已建和在建)，成立农业领域首个省级实验室——湘湖实验室，全省良种覆盖率达98%以上。</p>
+            <svg class="icon2" aria-hidden="true">
+                <use xlink:href="#icon-nongchang"></use>
+            </svg>
+        </div>
+        <div class="section3">
+            <svg class="icon3" aria-hidden="true">
+                <use xlink:href="#icon-nongye"></use>
+            </svg>
+            <p>2022年，农林牧渔业增加值2397亿元，比2018年增长9.3%。</p>
+        </div>
+    </div>
+</body>
+
+</html>

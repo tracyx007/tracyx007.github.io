@@ -1,0 +1,103 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=line-simple&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOSCatoPo2ggO6AA-oKo6ghnKCK5oKOmgHHaCw5oIVKgELd2gFetAs4mUiAXwA0RMMGBZIIAqmIYAThADmOnJqoBDUhADOk9LKK590ACZqi6e0bBGCAbUqBIcx6BS40BQ_WFKGVhfQD-1QDM5QDDMwEAGQHDTQDRlQE2vELDfQCw5QE15ZMARv0BxvxCAXTkNIyxdaCptHQALMFD0AHpm2AjAaPlAFhtAZz1AT-1ABXzATtNAeH1APujAO39ALjlAZ-VB51hahoIAJgAGMI0Wts7AXdjAbs8ZwHL5QQOFhVVYAEY1ra3W9o6DwDcMwAuE0_3pMthSAEFTMxODRgACeIHw4QAxm4cDpgJoQaEFq53F5KIBbc0Ae7qAID0mpRAIHagCObXEZQCUdji8YA1OwpGUAkGqAF0USeFALN-jLxgEXEwByyiTKIAjCJplEA-EGARx0eYAH5QFgF45Lq44pfIgg_7mIHEUHgqgANwqAFccEjygCADJGABGOCwKo0ADN4QBbNxgAxUJBarC6qQAUksxCk8vQZgMEBwgNgngW6i20CMtohvgCwXY-q2atjlWgeu-GhRHlDKwA7AA6K4yAAsheLAE4KwWKzIAMwANgLeZkKzrBYArK2SwWGzIGx3m_26621jX6z3aw2rgWABxyjTWDQRjRRmNUHw5fJFROZ1Vg1MQdNJrNuHOeCvtruzme1uvVlYyCs94t52dDhvvkv968v0tN7883bPsbxrBcfT3FdiDXWMfGieJkjSXcFnQFMqDTDMUNgbMvDzJtZxkPM_zrFYh1nasWwbdtiwbUjv0_Atvw7Qc-yoosZFAlsS2rDtwKsIg5SkABuIA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    option = {
+      
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: ['有旅游接待的村', '有图书馆、文化站的村', '有业余文化组织的村'],
+        align: 'right',  // 图例水平对齐方式设置为右对齐
+        right: 20,       // 图例距离右侧的距离
+        top: 50          // 图例距离顶部的距离
+      },
+      xAxis: {
+        type: 'category',
+        data: ['杭州市', '宁波市', '温州市', '湖州市', '嘉兴市', '绍兴市', '金华市', '衢州市', '舟山市', '台州市', '丽水市']
+      },
+      yAxis: {
+        type: 'value',
+        axisLabel: {
+          formatter: '{value}%'
+        }
+      },
+      grid: {
+        top: '20%',   // 距离容器顶部的距离
+        bottom: '10%',   // 距离容器底部的距离
+        left: '10%',    // 距离容器左侧的距离
+        right: '10%'    // 距离容器右侧的距离
+      },
+      series: [
+        {
+          name: '有旅游接待的村',
+          type: 'line',
+          data: [27.1, 47.1, 99.9, 36.7, 23.5, 24.6, 65.7, 63, 20.9, 34.9, 61.8],
+          color:'#976AC4'
+        },
+        {
+          name: '有业余文化组织的村',
+          type: 'line',
+          data: [93.5, 81.9, 39.2, 94.1, 78.7, 68.4, 65, 84.1, 46.4, 73.6, 81.9],
+          color:'#DFBBF0'
+        },
+        {
+          name: '有图书馆、文化站的村',
+          type: 'line',
+          data: [76.8, 74.1, 32.7, 89.7, 63.1, 62.4, 68.4, 55.6, 63.1, 81.7, 49.5],
+          color:'#7896CF'
+        }
+      ]
+    };
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+
+</html>

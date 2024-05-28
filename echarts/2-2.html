@@ -1,0 +1,103 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=pie-padAngle&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOSCnRoJDmg8vKD8RoCCagDqaBgSoCFug7EauUA06APRDYgcAtAGRmBw00A05kXS4AZhViUAxjmhgcAJwHFYI8RMAsNoGc9QLLygO395GUFTCh9B4aMmAg9UAvbtdvbyAZTAAT1wCJBdDNwlAdgtAeH1bdEUYMAB1HAgAcwALFUoAI2AsABNnI0B1bUBleUB0n0AxvwTYJK1_CAAvfFgAJgAGCOJyisByTUB4HVsAXyJR_iJHQsgQMN8dTIzdKghtAFtKCamFHBXoIoWDR3nVAFYAUgFbJVyNLV0bgyKAQzBXggBtSkBCm1p9JRAAByzEBgBI5UGCSiASDlmIAp5UAp3KAKDlKABdHZEADOuggOEx31sqAi0FeG3aNAYLA4PD4uxcwRA5JAuOeLg2EGgAEFoBlQrBzoIjIA-6KsgABzIaAJcjAGV6gBh_wB2HoBd-UA89aAKjlAOJGgC5lQC_CbRAM2xgHxNTjDeo6V5FCAAV3xsB-ABYutcoQB2B1oukGV4AN2AECKABlXnkcFgAPKe3RYV5nMA6C04d3EEBm7m89odBPodY4DaBELtIm9Ao6Iq6ABKZst1oAjF0M8QiyWdABhQrAHRUADEim7-iMgHvlBEizWcQCd8YAxC0AORmAJyD6ugG7oUr6wFkCFXIrAB0ONaOx4Be7Sl9Um9TUrfbNsoHYAYgBmAAiTYAnAA2QFXpuc2_Xl9Qq_Xp2cjoH1fJtbydABRc4nTdddAE0rKcp0Ab59p3qSMgywY5ekxLJgAAdwIGM4zrdAQGATF1igaAqGAC0wDIktezcQA_b0APjNAC5PQAKdU1QA0TUAC4TZwaZJmjaVcn0POtsxALJXjI60CwiVDgww3pYCw3D8NjeN-MSQTWjTWstIErQ0kyHIqAKYptmU8YIiPeTA2DP0OXzfjVLwhpXiwbExPqN4PgJZTwk9Dy4wIa8Og6AAOCLBBJMkqH-ShYFs3pAuC9oXSde1IJi0lyRBRLkoiVKsBC2Aq1tCLry6W1bRyuLVAhAqiOQWAgpK9oqyrB8IvOKs6vJWFERRJK63RAxrNgdFRgAbiAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    option = {
+
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        top: '10%',
+        left: 'center',
+        data: ['没有', '一处', '两处', '三处及以上']
+      },
+      series: [
+        {
+          name: '拥有住房处数的户数',
+          type: 'pie',
+          minAngle: 5, // 设置最小角度，确保每个扇区都有足够的大小
+          radius: ['40%', '70%'],
+          avoidLabelOverlap: true,
+          padAngle: 2,
+          itemStyle: {
+            borderRadius: 10,
+            borderColor: '#fff', // 可以设置扇区的边框颜色
+            borderWidth: 1 // 可以设置扇区的边框宽度
+          },
+          color: ['#F3DC96', '#FCAD36', '#F37A29', '#CD7E57'], // 橙色色系颜色
+          label: {
+            show: false,
+            position: 'outside', // 标签显示在扇区外部
+            fontSize: 10
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: 20,
+              fontWeight: 'bold'
+            }
+          },
+          labelLine: {
+            show: false
+          },
+          data: [
+            { value: 32288, name: '没有' },
+            { value: 7074057, name: '一处' },
+            { value: 1483044, name: '两处' },
+            { value: 119851, name: '三处及以上' },
+          ]
+        }
+      ]
+    };
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+
+</html>
