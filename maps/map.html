@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图视图</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://at.alicdn.com/t/c/font_4517633_0v5y9uhqn3kb.js"></script>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script
+        src="https://webapi.amap.com/maps?v=2.0&key=ec334f27789fb7c641a7db923e768679&plugin=AMap.ControlBar,AMap.ToolBar,AMap.MarkerCluster">
+        </script>
+    <script src="https://webapi.amap.com/ui/1.1/main.js"></script>
+</head>
+
+<body>
+    <div class="map-container" id="map-container"></div>
+    <script>
+
+        var map;
+
+        var data = [
+            {
+                "name": "安吉余村",
+                "position": [119.63961937818277, 30.60521705760776],
+                "introduction": "“两山”理念样板生态文明村",
+                "imgurl": "https://i.postimg.cc/1znGPNzk/image.jpg"
+            },
+            {
+                "name": "横港村",
+                "position": [120.48413702005382, 30.750115748487858],
+                "introduction": "艺术扎根打造文旅游融合新样板",
+                "imgurl": "https://i.postimg.cc/7ZpC3txR/image.jpg"
+            },
+            {
+                "name": "大陈村",
+                "position": [118.58979016721526, 28.849870867568285],
+                "introduction": "中国村歌发源地",
+                "imgurl": "https://i.postimg.cc/593Fhm3H/image.jpg"
+            },
+            {
+                "name": "下叶村",
+                "position": [120.64436742801496, 28.78024590437164],
+                "introduction": "“生态立乡”民宿集聚村",
+                "imgurl": "https://i.postimg.cc/5td0YHgd/image.jpg"
+            },
+            {
+                "name": "下姜村",
+                "position": [118.72138043207116, 29.3754304269614],
+                "introduction": "传承红色基因弘扬优秀传统文化",
+                "imgurl": "https://i.postimg.cc/kgtGgNxv/image.jpg"
+            },
+            {
+                "name": "胜丰村",
+                "position": [120.7665421648997, 30.84187913577051],
+                "introduction": "非遗扎根打造乡村振兴新样板",
+                "imgurl": "https://i.postimg.cc/yNcDvhx8/image.jpg"
+            },
+            {
+                "name": "新建村",
+                "position": [122.14987853880962, 30.088045448287417],
+                "introduction": "生态文旅融合成文创小镇南洞艺谷",
+                "imgurl": "https://i.postimg.cc/SsVNvghk/image.jpg"
+            },
+            {
+                "name": "让川村",
+                "position": [120.22768330311203, 27.794654453688366],
+                "introduction": "“赏”古老畲文化绘如画村庄景",
+                "imgurl": "https://i.postimg.cc/qRGzdk8f/image.jpg"
+            },
+            {
+                "name": "龙门秘境村落景区",
+                "position": [120.05155157844536, 30.177575212771004],
+                "introduction": "村落景区理念注入传统文化",
+                "imgurl": "https://i.postimg.cc/RZfCBSBP/image.jpg"
+            }
+        ]
+
+        var center=[];
+        data.forEach(function (item) {
+            var keyword = "安吉余村";
+            if (item.name.includes(keyword)) {
+                center = [item.position[0], item.position[1]]
+            }
+        })
+
+        function mapInit() {
+            map = new AMap.Map('map-container', {
+                rotateEnable: true,
+                pitchEnable: true,
+                pitch: 50,
+                rotation: -15,
+                viewMode: '3D',
+                zoom: 15,
+                minZoom: 5, // 设置地图允许的最小缩放级别为 13
+                maxZoom: 20, // 设置地图允许的最大缩放级别为 20
+                center: center,
+                resizeEnable: true
+            });
+        };
+        mapInit();
+    </script>
+    <script>
+        var markers = [];
+        var infoMarkers = [];
+        loadmarkers(data);
+
+        function loadmarkers(eventData) {
+            var serverUrl = "http://116.62.176.59:8080/xqlgq/files/";
+            data.forEach(function (data) {
+                var markerContent;
+                var imageURL = data.imgurl,
+                    markerContent = '<div class="custom-marker">' +
+                        '<img src="' + imageURL + '" class="avatar-background">' +
+                        '   <img src="https://i.postimg.cc/nVCPxPtx/academic.png" class="avatar">' + // 定位图标
+                        '</div>';
+                console.log(data);
+                var position = [data.position[0], data.position[1]]
+                var marker = new AMap.Marker({
+                    position: position,
+                    content: markerContent,
+                    clickable: true, //图标可点击
+                    offset: new AMap.Pixel(0, 0),
+                    name: data.name,
+                    introduction: data.introduction,
+                    imgurl: data.imgurl
+                });
+                markers.push(marker);
+                var infoMarkerContent;
+                var infoMarker;
+                infoMarkerContent = '<div class="info-marker-help">';
+                infoMarkerContent += '<p class="event_title_help">' + data.name + '</p>'; // 标题在最上面
+                infoMarkerContent += '<div class="info-text-help">' + data.introduction + '</div>';
+                infoMarkerContent += '</div>'; // 左侧容器结束
+                infoMarker = new AMap.Marker({
+                    position: [data.position[0], data.position[1]],
+                    content: infoMarkerContent,
+                    offset: new AMap.Pixel(40, 0), // 位置偏移以显示在原标记上方
+                    eventID: data.gid,
+                    zIndex: 1000, // 确保信息框在顶层
+                    clickable: true, // 使信息框不可点击
+                    relatedMarker: marker, // 将 marker 关联到 infoMarker 的自定义属性 relatedMarker 中
+                    flag: true, //记录infomarker的显示情况
+                });
+                infoMarkers.push(infoMarker);
+
+
+                marker.infoMarker = infoMarker;
+
+                infoMarker.relatedInfoMarker = marker;
+                infoMarker.flag = true;
+
+                marker.on('click', function (e) {
+                    var marker = e.target;
+                    var infoMarker = marker.infoMarker;
+                    var flag = infoMarker.flag;
+                    // 执行操作1
+                    console.log("收起信息框" + data.gid);
+
+                    if (flag) {
+                        // 如果infoMarker已经在地图上，则隐藏它
+                        infoMarker.setMap(null);
+                        infoMarker.flag = false;
+                    } else {
+                        // 如果infoMarker不在地图上，则显示它
+                        infoMarker.setMap(map);
+                        infoMarker.flag = true;
+                    }
+                });
+            });
+            map.add(markers);
+            map.add(infoMarkers);
+        }
+
+    </script>
+
+</body>
+
+</html>
