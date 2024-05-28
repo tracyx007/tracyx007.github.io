@@ -1,0 +1,234 @@
+body {
+  min-width: 992px !important;
+}
+
+.container {
+  min-width: 992px !important;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: space-between;
+  /* 在每行两个小卡片之间均匀分布 */
+}
+
+.scard {
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 250;
+  width: 320;
+}
+
+.card-chart {
+  width: calc(80% - 10px);
+  /* 计算卡片宽度为父容器的一半，减去间距 */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  margin: 0 auto 20px;
+  /* 水平居中并设置底部间距 */
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+
+.card-title {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+  /* 设置与下方内容的距离为10px */
+}
+
+.main-card {
+  width: 80%;
+  /* 占据整行宽度 */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 auto 20px;
+  /* 水平居中并设置底部间距 */
+  box-shadow: 0px 0px 5px rgba(81, 105, 187, 0.3);
+  /* 添加外阴影 */
+  text-align: center;
+  background-color: #FFF;
+}
+
+.mcard{
+  width: 830px;
+  margin: 0 auto 20px;
+}
+
+.big-card {
+  width: 900px;
+  /* 占据整行宽度 */
+  height: 900px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 auto 20px;
+  /* 水平居中并设置底部间距 */
+  box-shadow: 0px 0px 5px rgba(81, 105, 187, 0.3);
+  /* 添加外阴影 */
+  text-align: center;
+  background-color: #FFF;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-small {
+  width: 90%;
+  /* 或者你希望的卡片宽度 */
+  height: 250px;
+  /* 或者你希望的卡片高度 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.right-card {
+  width: 450px;
+  /* 或者你希望的卡片宽度 */
+  height: 510px;
+  /* 或者你希望的卡片高度 */
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.left-card {
+  width: 50%;
+  /* 卡片宽度 */
+  height: 510px;
+  margin-left: 5%;
+  /* 左边距 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  float: left;
+  /* 浮动到左侧 */
+  border-radius: 10px;
+  /* 边框圆角 */
+  margin-right: 10px;
+  background-color: #FFF;
+}
+
+.right-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+  /* 设置左边距 */
+  background-color: #FFF;
+
+}
+
+h3 {
+  font-family: 黑体, Geneva, sans-serif;
+  /* 使用Verdana字体，如果用户的浏览器不支持，则会使用备用字体 */
+  font-size: 25px;
+  /* 设置字号为18像素 */
+}
+
+/* 修改后的活动状态的导航链接样式 */
+.nav-tabs .nav-item .nav-link.active {
+  background-color: #f2f7e2;
+  /* 修改背景色为橙色 */
+  color: #000000;
+  /* 修改文本颜色为黑色 */
+  font-weight: bold;
+  /* 设置字体加粗 */
+  border-radius: 5px;
+  /* 设置边框圆角 */
+  padding: 8px 16px;
+  /* 调整内边距 */
+  transition: all 0.3s ease;
+  /* 添加过渡效果 */
+}
+
+.nav-tabs .nav-item .nav-link.active:hover {
+  background-color: #f2f7e2;
+  /* 鼠标悬停时修改背景色 */
+  color: #000000;
+  /* 鼠标悬停时修改文本颜色 */
+}
+
+/* 修改按钮样式 */
+.nav-item .btn {
+  background-color: #ffffff;
+  /* 设置按钮背景色 */
+  color: #4fa164;
+  /* 设置按钮文本颜色 */
+  border: 2px solid #ffffff;
+  /* 设置按钮边框 */
+  padding: 6px 12px;
+  /* 设置按钮内边距 */
+  border-radius: 8px;
+  /* 设置按钮圆角 */
+  text-decoration: none;
+  /* 移除按钮下划线 */
+  transition: background-color 0.3s ease;
+  /* 添加过渡效果 */
+  font-size: 16px;
+}
+
+.nav-item .btn:hover {
+  background-color: #9cac68;
+  /* 鼠标悬停时修改按钮背景色 */
+  color: #ffffff;
+  /* 鼠标悬停时修改按钮文本颜色 */
+}
+
+/* 隐藏在小屏幕设备上的按钮 */
+@media (max-width: 767px) {
+  .nav-item .d-md-flex {
+    display: none;
+  }
+}
+
+.font1 {
+  font-family: "Arial", sans-serif;
+  font-size: 30px; 
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.font2{
+  font-family: "Arial", sans-serif;
+  font-size: 18px; 
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
