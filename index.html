@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浙江省乡村建设可视化平台</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/797a9691f9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+  <script src="./assets/js/require.min.js"></script>
+  <script>
+    requirejs.config({
+      baseUrl: '.'
+    });
+  </script>
+  <!-- Dashboard Core -->
+  <link href="./assets/css/dashboard.css" rel="stylesheet" />
+  <script src="./assets/js/dashboard.js"></script>
+  <!-- c3.js Charts Plugin -->
+  <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/charts-c3/plugin.js"></script>
+  <!-- Google Maps Plugin -->
+  <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/maps-google/plugin.js"></script>
+  <!-- Input Mask Plugin -->
+  <script src="./assets/plugins/input-mask/plugin.js"></script>
+  <!-- Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/zhejiang.css">
+  <link rel="shortcut icon" href="./zhe.ico">
+
+  <style>
+    .carousel-container {
+      background-image: url('./成品图/0.jpg');
+      /* 设置背景图片 */
+      background-size: cover;
+      /* 背景图片大小覆盖整个容器 */
+      background-position: center;
+      /* 图片在容器中居中显示 */
+    }
+
+    .carousel-caption-custom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      /* 设置文字背景颜色为黑色，带透明度 */
+      color: white;
+      /* 设置文字颜色为白色 */
+      padding: 15px;
+      /* 添加内边距 */
+    }
+
+    .iframe-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .l-card {
+      width: 600px;
+      height: 600px;
+      position: relative;
+      margin: 20px auto;
+      /* 让元素水平居中 */
+      box-shadow: 0px 0px 5px rgba(81, 105, 187, 0.3);
+      /* 添加外阴影 */
+      border-radius: 20px;
+    }
+
+    .r-card {
+      width: 400px;
+      height: 500px;
+      /* 设置高度 */
+      position: inherit;
+      right: 100px;
+      /* 将元素上移50% */
+      box-shadow: 0px 0px 5px rgba(81, 105, 187, 0.3);
+      /* 添加外阴影 */
+    }
+
+
+    .in-card {
+      width: 400px;
+      height: 400px;
+      left: 200px;
+      /* 让元素居中 */
+      border-radius: 20px;
+      border: 2px solid #ccc;
+      /* 添加边界线 */
+    }
+
+
+
+    .title {
+      position: relative;
+      margin: 0;
+      padding-left: 15px;
+      width: calc(68vw - 30px);
+      left: 5%;
+      font-size: 4vmin;
+      font-weight: bold;
+      border: 5px solid #ffffff;
+      border-width: 0px 0px 0px 10px;
+    }
+
+    .title-1 {
+      top: 15%;
+    }
+
+    .policy {
+      position: relative;
+      margin: 0;
+      left: 4%;
+      width: 70vw;
+      height: 35vh;
+    }
+
+    .policy-1 {
+      top: 17%;
+    }
+
+    .policy-item {
+      position: absolute;
+      display: inline-block;
+      width: 42vmin;
+      height: 25vmin;
+      overflow: hidden;
+      margin: 0.5vw;
+      border: 2px solid #999696;
+      text-align: center;
+    }
+
+    .p-p-i-1 {
+      transition: top 1s ease;
+      top: calc(25vh - 15vmin);
+      left: 0;
+      box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+      /* 只添加外层立体阴影 */
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      /* 白色边框 */
+      border-radius: 20px;
+      /* 添加圆角边框 */
+    }
+
+    .p-p-i-2 {
+      transition: top 1s ease;
+      top: calc(25vh - 15vmin);
+      left: calc((65vw - 32vmin) / 5 * 1);
+      box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+      /* 只添加外层立体阴影 */
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      /* 白色边框 */
+      border-radius: 20px;
+      /* 添加圆角边框 */
+    }
+
+    .p-p-i-3 {
+      transition: top 1s ease;
+      top: calc(25vh - 15vmin);
+      left: calc((65vw - 32vmin) / 5 * 2);
+      box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+      /* 只添加外层立体阴影 */
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      /* 白色边框 */
+      border-radius: 20px;
+      /* 添加圆角边框 */
+    }
+
+    .p-p-i-4 {
+      transition: top 1s ease;
+      top: calc(25vh - 15vmin);
+      left: calc((65vw - 32vmin) / 5 * 3);
+      box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+      /* 只添加外层立体阴影 */
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      /* 白色边框 */
+      border-radius: 20px;
+      /* 添加圆角边框 */
+    }
+
+    .p-p-i-5 {
+      transition: top 1s ease;
+      top: calc(25vh - 15vmin);
+      left: calc((65vw - 32vmin) / 5 * 4);
+      box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+      /* 只添加外层立体阴影 */
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      /* 白色边框 */
+      border-radius: 20px;
+      /* 添加圆角边框 */
+    }
+
+    .p-p-i-6 {
+      transition: top 1s ease;
+      top: calc(25vh - 15vmin);
+      left: calc(65vw - 32vmin);
+      box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+      /* 只添加外层立体阴影 */
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      /* 白色边框 */
+      border-radius: 20px;
+      /* 添加圆角边框 */
+    }
+
+
+    .p-p-i-1:hover {
+      top: calc(0% - var(--up-h));
+
+    }
+
+    .p-p-i-1:hover+.title-1 {
+      color: #3B9473;
+    }
+
+    .p-p-i-2:hover {
+      top: calc((25vh - 18vmin) / 5 * 1 - var(--up-h));
+    }
+
+    .p-p-i-3:hover {
+      top: calc((25vh - 18vmin) / 5 * 2 - var(--up-h));
+    }
+
+    .p-p-i-4:hover {
+      top: calc((25vh - 18vmin) / 5 * 3 - var(--up-h));
+    }
+
+    .p-p-i-5:hover {
+      top: calc((25vh - 18vmin) / 5 * 4 - var(--up-h));
+    }
+
+    .p-p-i-6:hover {
+      top: calc(25vh - 18vmin - var(--up-h));
+    }
+
+
+    .policy-pic {
+      width: 120%;
+      /* Adjust as needed */
+      height: 120%;
+      /* Adjust as needed */
+    }
+
+    .polic-date {
+      margin: 0 0 0 10px;
+      padding-left: 20px;
+      width: 60%;
+      font-size: 3vmin;
+      font-weight: bold;
+      border: 5px solid #9DC3E6;
+      border-width: 0px 0px 0px 10px;
+    }
+
+    .polic-name {
+      margin: 0;
+      padding-right: 20px;
+      width: 60%;
+      font-size: 3vmin;
+      font-weight: bold;
+      border: 5px solid #9DC3E6;
+      border-width: 0px 10px 0px 0px;
+    }
+
+    @media screen and (max-width: 750px)
+  </style>
+  <script type="text/javascript">
+    var p_p_data = [
+      ["《浙江省委省政府印发《关于坚持和深化新时代“千万工程”打造乡村全面振兴浙江样板2024年工作要点》的通知》"],
+      ["《农业农村部 浙江省人民政府 关于印发《高质量创建乡村振兴示范省推进共同富裕示范区建设行动方案（2021—2025年）》的通知》"],
+      ["《浙江省乡村旅游促进办法》"],
+      ["《浙江省 大力构建“四治融合”乡村治理体系》"],
+      ["《浙江实施“千万工程”造就万千美丽乡村的生动实践》"],
+      ["《浙江省数字乡村建设“十四五”规划》"]
+    ];
+
+    function policyOnMouseOver(type, idx) {
+      if (type == 1) {
+        document.getElementById("p_p_date").innerHTML = p_p_data[idx][0];
+        document.getElementById("p_p_date").setAttribute("style", "");
+        document.getElementById("p_p_name").setAttribute("style", "");
+      } else if (type == 2) {
+        document.getElementById("p_c_date").innerHTML = p_c_data[idx][0];
+        document.getElementById("p_c_name").innerHTML = p_c_data[idx][1];
+        document.getElementById("p_c_date").setAttribute("style", "");
+        document.getElementById("p_c_name").setAttribute("style", "");
+      } else {
+        document.getElementById("p_p_date").setAttribute("style", "display:none;");
+        document.getElementById("p_p_name").setAttribute("style", "display:none;");
+        document.getElementById("p_c_date").setAttribute("style", "display:none;");
+        document.getElementById("p_c_name").setAttribute("style", "display:none;");
+      }
+    }
+
+    function policyOnMouseOut(type) {
+      if (type == 1) {
+        document.getElementById("p_p_date").setAttribute("style", "display:none;");
+        document.getElementById("p_p_name").setAttribute("style", "display:none;");
+      } else if (type == 2) {
+        document.getElementById("p_c_date").setAttribute("style", "display:none;");
+        document.getElementById("p_c_name").setAttribute("style", "display:none;");
+      } else {
+        document.getElementById("p_p_date").setAttribute("style", "display:none;");
+        document.getElementById("p_p_name").setAttribute("style", "display:none;");
+        document.getElementById("p_c_date").setAttribute("style", "display:none;");
+        document.getElementById("p_c_name").setAttribute("style", "display:none;");
+      }
+    }
+    window.onload = function () {
+      document.getElementById("p_p_date").setAttribute("style", "display:none;");
+      document.getElementById("p_p_name").setAttribute("style", "display:none;");
+      document.getElementById("p_c_date").setAttribute("style", "display:none;");
+      document.getElementById("p_c_name").setAttribute("style", "display:none;");
+    }
+  </script>
+
+  </style>
+
+
+</head>
+
+<body class="">
+  <div class="page">
+    <div class="page-main">
+      <div class="header py-4">
+        <div class="container">
+          <div class="d-flex">
+            <a class="header-brand" href="./index.html">
+              <img src="./icons/浙江.png" class="logo" alt="logo">
+            </a>
+            <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+              <li class="nav-item">
+                <a href="./index.html" class="nav-link active"><i class="fa-solid fa-house" style="color: #63E6BE"></i>
+                  主页</a>
+              </li>
+              <li class="nav-item">
+                <a href="./furao.html" class="nav-link"><i class="fa-solid fa-money-bill-trend-up"
+                    style="color: #63E6BE;"></i> 富饶乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./renwen.html" class="nav-link"><i class="fa-solid fa-cable-car" style="color: #63E6BE;"></i>
+                  人文乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./shanzhi.html" class="nav-link"><i class="fa-solid fa-landmark" style="color: #63E6BE;"></i>
+                  善治乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./meili.html" class="nav-link"><i class="fa-solid fa-mountain-sun" style="color: #63E6BE;"></i>
+                  美丽乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./shuzi.html" class="nav-link"><i class="fa-solid fa-wifi" style="color: #63E6BE;"></i>
+                  数字乡村</a>
+              </li>
+            </ul>
+
+            <script>
+              // 获取当前页面的 URL
+              var currentPageUrl = window.location.href;
+
+              // 导航链接列表
+              var navLinks = document.querySelectorAll('.nav-tabs .nav-item .nav-link');
+
+              // 循环遍历导航链接
+              navLinks.forEach(function (navLink) {
+                // 如果当前导航链接的 href 与当前页面的 URL 匹配
+                if (navLink.getAttribute('href') === currentPageUrl) {
+                  // 添加活动状态类
+                  navLink.classList.add('active');
+                }
+              });
+
+            </script>
+
+            <div class="d-flex order-lg-2 ml-auto">
+              <div class="nav-item d-none d-md-flex">
+                <a href="https://www.geosceneonline.cn/geoscene/apps/storymaps/stories/e5ced13f144b403abfe78e89b0edeab9"
+                  target="iframe_source_code" class="btn btn-sm btn-outline-primary">Story Map</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 轮播图开始 -->
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 15px;">乡村建设总览</h5>
+          <div class="carousel-container" style="position: relative;">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="https://imgur.la/images/2024/05/05/1.jpg" class="d-block w-100"
+                    style="object-fit: contain; max-height: 300px;" alt="...">
+                  <div class="carousel-caption d-none d-md-block carousel-caption-custom">
+                    <h5>乡镇总览</h5>
+                    <p>水乡画卷映千年，村韵悠长绵万里</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="https://imgur.la/images/2024/05/05/2.jpg" class="d-block w-100"
+                    style="object-fit: contain; max-height: 300px;" alt="...">
+                  <div class="carousel-caption d-none d-md-block carousel-caption-custom">
+                    <h5>富饶乡村</h5>
+                    <p>绿野稻香，金波涌浪</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="https://imgur.la/images/2024/05/05/3.jpg" class="d-block w-100"
+                    style="object-fit: contain; max-height: 300px;" alt="...">
+                  <div class="carousel-caption d-none d-md-block carousel-caption-custom">
+                    <h5>人文乡村</h5>
+                    <p>桥影水声，史韵悠长</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="https://imgur.la/images/2024/05/05/4.jpg" class="d-block w-100"
+                    style="object-fit: contain; max-height: 300px;" alt="...">
+                  <div class="carousel-caption d-none d-md-block carousel-caption-custom">
+                    <h5>善治乡村</h5>
+                    <p>政通人和，德润民心</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="https://imgur.la/images/2024/05/05/5.jpg" class="d-block w-100"
+                    style="object-fit: contain; max-height: 300px;" alt="...">
+                  <div class="carousel-caption d-none d-md-block carousel-caption-custom">
+                    <h5>美丽乡村</h5>
+                    <p>水碧山青，风清景明</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="https://imgur.la/images/2024/05/05/6.jpg" class="d-block w-100"
+                    style="object-fit: contain; max-height: 300px;" alt="...">
+                  <div class="carousel-caption d-none d-md-block carousel-caption-custom">
+                    <h5>数字乡村</h5>
+                    <p>云端互联，智绘乡村</p>
+                  </div>
+                </div>
+                <!-- Add other carousel items -->
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 轮播图结束 -->
+
+
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center" style="font-size: 24px; font-weight: bold;">浙江省乡村及乡村振兴示范村数量统计</h5>
+                <p class="card-text">《乡村振兴促进法》第二条第二款规定,本法所称乡村,是指城市建成区以外具有自然、社会、经济特征和生产、生活、生态、文化等多重功能的地域综合体,包括乡镇和村庄等。
+                  浙江省共有11个市级行政区,90个区县,共19252个乡村,其中乡村振兴示范村有410个,占比2.13%。</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">各市乡村统计</h5>
+                        <canvas id="barChart" width="400" height="200"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">示范村总数比例</h5>
+                        <canvas id="pieChart" width="100" height="100"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // 你的市级乡村统计数据
+        const cities = ['杭州市', '湖州市', '嘉兴市', '金华市', '丽水市', '宁波市', '衢州市', '绍兴市', '台州市', '温州市', '舟山市'];
+        const counties = [13, 5, 7, 9, 9, 10, 6, 6, 9, 13, 4];
+        const villages = [1920, 916, 743, 2711, 1889, 2140, 1343, 1585, 2773, 2951, 281];
+        const demonstrationVillages = [47, 35, 35, 39, 40, 40, 35, 37, 40, 43, 19];
+
+        // 创建柱状图
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(barCtx, {
+          type: 'bar',
+          data: {
+            labels: cities,
+            datasets: [
+              {
+                label: '区县数量',
+                data: counties,
+                backgroundColor: '#58BEEA'
+              },
+              {
+                label: '乡村数量',
+                data: villages,
+                backgroundColor: '#7DBA00'
+              },
+              {
+                label: '示范村数量',
+                data: demonstrationVillages,
+                backgroundColor: '#E9C34B'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            legend: {
+              position: 'top'
+            },
+            title: {
+              display: true,
+              text: '各市乡村统计'
+            }
+          }
+        });
+
+        // 创建饼图
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        const pieChart = new Chart(pieCtx, {
+          type: 'pie',
+          data: {
+            labels: ['其他村总数', '示范村总数'],
+            datasets: [{
+              data: [villages.reduce((a, b) => a + b, 0), demonstrationVillages.reduce((a, b) => a + b, 0)],
+              backgroundColor: ['#53B2DB', '#E9C34B']
+            }]
+          },
+          options: {
+            responsive: true,
+            aspectRatio: 2,
+            title: {
+              display: true,
+              text: '示范村总数比例'
+            }
+          }
+        });
+      </script>
+      <div class="main-card">
+        <h2>
+          浙江省各方面建设成就
+        </h2>
+        <div class="row">
+          <div class="l-card">
+            <div class="iframe-container">
+              <iframe id="iframe1" src="./echarts/1-1.html" width="100%" height="600px" width="400px" frameborder="0"
+                scrolling="no"></iframe>
+              <iframe id="iframe2" src="./echarts/1-2.html" width="100%" height="100%" frameborder="0"
+                style="display:none;" scrolling="no"></iframe>
+              <iframe id="iframe3" src="./echarts/1-3.html" width="100%" height="100%" frameborder="0"
+                style="display:none;" scrolling="no"></iframe>
+              <iframe id="iframe4" src="./echarts/1-4.html" width="100%" height="100%" frameborder="0"
+                style="display:none;" scrolling="no"></iframe>
+              <iframe id="iframe5" src="./echarts/1-5.html" width="100%" height="100%" frameborder="0"
+                style="display:none;" scrolling="no"></iframe>
+              <iframe id="iframe6" src="./echarts/1-6.html" width="100%" height="100%" frameborder="0"
+                style="display:none;" scrolling="no"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- 时间表开始 -->
+        <div class="big-card">
+          <iframe src="./charts/1_time/time.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <!-- 时间表结束 -->
+        <br />
+        <br />
+
+        <!-- 政策开始 -->
+        <div class="zhengche">
+          <div class="title title-1">
+            浙江省乡村振兴重要政策
+            <span class="polic-date" id="p_p_date"></span>
+            <span class="polic-name" id="p_p_name"></span>
+          </div>
+          <div class="policy policy-1">
+            <a class="policy-item p-p-i-1" onmouseover="policyOnMouseOver(1,0)" onmouseout="policyOnMouseOut(1)"
+              href="https://nynct.zj.gov.cn/art/2024/4/17/art_1229557686_2517940.html" target="_blank">
+              <img class="policy-pic" src="img_zhengche\quanwangoncheng.png">
+            </a>
+            <a class="policy-item p-p-i-2" onmouseover="policyOnMouseOver(1,1)" onmouseout="policyOnMouseOut(1)"
+              href="http://www.ghs.moa.gov.cn/tzgg/202108/t20210826_6374988.htm" target="_blank">
+              <img class="policy-pic" src="img_zhengche\furao.png">
+            </a>
+            <a class="policy-item p-p-i-3" onmouseover="policyOnMouseOver(1,2)" onmouseout="policyOnMouseOut(1)"
+              href="https://www.gov.cn/zhengce/2023-02/02/content_5743707.htm" target="_blank">
+              <img class="policy-pic" src="img_zhengche\renwen.png">
+            </a>
+            <a class="policy-item p-p-i-4" onmouseover="policyOnMouseOver(1,3)" onmouseout="policyOnMouseOut(1)"
+              href="http://journal.crnews.net/ncjygl/2022n/d5q/bqjj/948877_20220712052151.html" target="_blank">
+              <img class="policy-pic" src="img_zhengche\sanzhi.png">
+            </a>
+            <a class="policy-item p-p-i-5" onmouseover="policyOnMouseOver(1,4)" onmouseout="policyOnMouseOut(1)"
+              href="https://www.mee.gov.cn/xxgk2018/xxgk/xxgk15/201908/t20190823_729836.html" target="_blank">
+              <img class="policy-pic" src="img_zhengche\meili.png">
+            </a>
+            <a class="policy-item p-p-i-6" onmouseover="policyOnMouseOver(1,5)" onmouseout="policyOnMouseOut(1)"
+              href="https://zjnews.zjol.com.cn/gdxw2021/202106/t20210611_22663981.shtml" target="_blank">
+              <img class="policy-pic" src="img_zhengche\shuzi.png">
+            </a>
+          </div>
+        </div>
+        <br />
+        <br />
+        <!-- 政策结束 -->
+
+        <script>
+          var currentPage = 1;
+
+          function nextPage() {
+            var iframe1 = document.getElementById("iframe1");
+            var iframe2 = document.getElementById("iframe2");
+            var iframe3 = document.getElementById("iframe3");
+            var iframe4 = document.getElementById("iframe4");
+            var iframe5 = document.getElementById("iframe5");
+            var iframe6 = document.getElementById("iframe6");
+
+            if (currentPage === 1) {
+              iframe1.style.display = "none";
+              iframe2.style.display = "block";
+              currentPage = 2;
+            } else if (currentPage === 2) {
+              iframe2.style.display = "none";
+              iframe3.style.display = "block";
+              currentPage = 3;
+            } else if (currentPage === 3) {
+              iframe3.style.display = "none";
+              iframe4.style.display = "block";
+              currentPage = 4;
+            } else if (currentPage === 4) {
+              iframe4.style.display = "none";
+              iframe5.style.display = "block";
+              currentPage = 5;
+            } else if (currentPage === 5) {
+              iframe5.style.display = "none";
+              iframe6.style.display = "block";
+              currentPage = 6;
+            } else {
+              iframe6.style.display = "none";
+              iframe1.style.display = "block";
+              currentPage = 1;
+            }
+          }
+
+          // 每3秒自动跳转到下一页
+          setInterval(nextPage, 3000);
+        </script>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>

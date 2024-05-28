@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浙江省乡村建设可视化平台</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/797a9691f9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+  <!-- Dashboard Core -->
+  <link href="./assets/css/dashboard.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./assets/css/zhejiang.css">
+
+  <script src="./assets/js/dashboard.js"></script>
+  <!-- c3.js Charts Plugin -->
+  <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/charts-c3/plugin.js"></script>
+  <!-- Google Maps Plugin -->
+  <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/maps-google/plugin.js"></script>
+  <!-- Input Mask Plugin -->
+  <script src="./assets/plugins/input-mask/plugin.js"></script>
+  <!-- Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Magnific Popup CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+  <!-- jQuery (necessary for Magnific Popup) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Magnific Popup JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+
+  <link rel="shortcut icon" href="./zhe.ico">
+
+  <style>
+    .card {
+      margin: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      /* 添加鼠标指针 */
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    /* 自定义样式 */
+    .center-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body class="">
+  <div class="page">
+    <div class="page-main">
+      <div class="header py-4">
+        <div class="container">
+          <div class="d-flex">
+            <a class="header-brand" href="./index.html">
+              <img src="./icons/浙江.png" class="logo" alt="tabler logo">
+            </a>
+            <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+              <li class="nav-item">
+                <a href="./index.html" class="nav-link"><i class="fa-solid fa-house" style="color: #63E6BE;"></i>
+                  主页</a>
+              </li>
+              <li class="nav-item">
+                <a href="./furao.html" class="nav-link"><i class="fa-solid fa-money-bill-trend-up"
+                    style="color: #63E6BE;"></i> 富饶乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./renwen.html" class="nav-link"><i class="fa-solid fa-cable-car" style="color: #63E6BE;"></i>
+                  人文乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./shanzhi.html" class="nav-link active"><i class="fa-solid fa-landmark" style="color: #63E6BE;"></i>
+                  善治乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./meili.html" class="nav-link"><i class="fa-solid fa-mountain-sun" style="color: #63E6BE;"></i>
+                  美丽乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./shuzi.html" class="nav-link"><i class="fa-solid fa-wifi" style="color: #63E6BE;"></i>
+                  数字乡村</a>
+              </li>
+            </ul>
+            <div class="d-flex order-lg-2 ml-auto">
+              <div class="nav-item d-none d-md-flex">
+                <a href="https://www.geosceneonline.cn/geoscene/apps/storymaps/stories/e5ced13f144b403abfe78e89b0edeab9"
+                  target="_blank" class="btn btn-sm btn-outline-primary">Story Map</a>
+              </div>
+            </div>
+            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse"
+              data-target="#headerMenuCollapse">
+              <span class="header-toggler-icon"></span>
+            </a>
+          </div>
+          <hr> <!-- 分割线 -->
+        </div>
+      </div>
+
+      <script>
+        // 获取当前页面的 URL
+        var currentPageUrl = window.location.href;
+
+        // 导航链接列表
+        var navLinks = document.querySelectorAll('.nav-tabs .nav-item .nav-link');
+
+        // 循环遍历导航链接
+        navLinks.forEach(function (navLink) {
+          // 如果当前导航链接的 href 与当前页面的 URL 匹配
+          if (navLink.getAttribute('href') === currentPageUrl) {
+            // 添加活动状态类
+            navLink.classList.add('active');
+          }
+        });
+
+      </script>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 center-card">
+            <div class="card" style="width: 800px;">
+              <a href="./成品图/4.jpg" class="card-img-link" title="点击图片预览" target="_blank">
+                <img src="./成品图/4.jpg" class="card-img-top" alt="图片">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">善治乡村</h5>
+                <p class="card-text">在实施“千万工程”过程中，浙江省牢固树立系统思维，坚持以善治乡村为支撑，突出党建引领，完善“四治融合”，推进“万村善治”，不断提高乡村治理体系和治理能力现代化水平。
+                </p>
+                <a href="http://www.farmchina.org.cn/ShowArticles.php?url=Um5UMQ1tVWADMgBgU2RTM1Uy"
+                  class="btn btn-primary" target="_blank">了解更多</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Magnific Popup JavaScript -->
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $('.card-img-link').magnificPopup({
+            type: 'image',
+            closeOnContentClick: true,
+            closeBtnInside: false,
+            callbacks: {
+              open: function () {
+                $('body').addClass('mfp-open');
+              },
+              close: function () {
+                $('body').removeClass('mfp-open');
+              }
+            }
+          });
+
+          // 点击图片关闭预览
+          $('.mfp-img').click(function () {
+            $.magnificPopup.close();
+          });
+        });
+      </script>
+
+
+      <div
+        style="border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 20px; width: 80%; margin: 0 auto;">
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div id="container" style="width: 100%; height: 500px;"></div>
+      </div>
+
+      <!-- 添加一些额外的内容，并对其应用下边距 -->
+      <div style="margin-bottom: 50px;"></div>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+      <script type="text/javascript">
+        var dom = document.getElementById('container');
+        var myChart = echarts.init(dom, null, {
+          renderer: 'svg'
+        });
+
+        var option;
+
+        option = {
+          title: { // 添加标题
+            text: '乡村最低生活保障和救济情况（2012-2022年）', // 标题内容
+            left: 'center', // 标题居中
+            textStyle: { // 标题样式
+              fontSize: 18, // 标题字体大小
+              fontWeight: 'bold' // 标题字体粗细
+            }
+          },
+          grid: { // 图表绘图区域的布局
+            top: 60, // 图表绘图区域的上边距，调整这个值来放置标题在图例的上方
+            bottom: 50, // 图表绘图区域的下边距
+            left: 50, // 图表绘图区域的左边距
+            right: 50 // 图表绘图区域的右边距
+          },
+          tooltip: {
+            top: 20, // 标题距离顶部的距离
+            trigger: 'axis',
+            axisPointer: {
+              type: 'cross',
+              crossStyle: {
+                color: '#999'
+              }
+            }
+          },
+          toolbox: {
+            feature: {
+              dataView: { show: true, readOnly: false },
+              magicType: { show: true, type: ['line', 'bar'] },
+              restore: { show: true },
+              saveAsImage: { show: true }
+            }
+          },
+          legend: {
+            top: 40, // 标题距离顶部的距离
+            data: ['最低生活保障人数（万）', '保障资金总额（亿）', '人数增长率', '投入增长率'] // 添加了'Temperature2'
+          },
+          xAxis: [
+            {
+              type: 'category',
+              data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+              axisPointer: {
+                type: 'shadow'
+              }
+            }
+          ],
+          yAxis: [
+            {
+              type: 'value',
+              min: -20,
+              max: 90,
+              interval: 10,
+              axisLabel: {
+                formatter: '{value}'
+              }
+            },
+            {
+              type: 'value',
+              min: -20,
+              max: 90,
+              interval: 10,
+              axisLabel: {
+                formatter: '{value} %'
+              }
+            }
+          ],
+          series: [
+            {
+              name: '最低生活保障人数（万）',
+              type: 'bar',
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + ' 万';
+                }
+              },
+              data: [
+                60.71, 58.87, 54.35, 60.22, 71.37, 59.23, 50.61, 48.68, 55.19, 53.30, 50.68
+              ],
+              color:'#D6ADA7'
+            },
+            {
+              name: '保障资金总额（亿）',
+              type: 'bar',
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + ' 亿';
+                }
+              },
+              data: [
+                17.82, 19.94, 20.21, 21.95, 28.75, 28.64, 31.16, 33.28, 51.39, 48.98, 54.72
+              ],
+              color:'#F7E7BC'
+            },
+            {
+              name: '人数增长率',
+              type: 'line',
+              yAxisIndex: 1,
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + ' %';
+                }
+              },
+              data: [0, -3.03, -7.68, 10.80, 18.52, -17.01, -14.55, -3.81, 13.37, -3.42, -4.92],
+              color:'#C7040A'
+            },
+            {
+              name: '投入增长率', // 新添加的温度系列
+              type: 'line', // 与'Temperature'系列相同的类型
+              yAxisIndex: 1, // 使用相同的y轴
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + ' %';
+                }
+              },
+              data: [0, 11.90, 1.35, 8.61, 30.98, -0.38, 8.80, 6.80, 54.42, -4.69, 11.72], // 示例数据，你可以根据需求修改
+              color:'#F8B90D'
+            }
+          ]
+        };
+
+
+        if (option && typeof option === 'object') {
+          myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+      </script>
+    </div>
+  </div>
+  <div class="main-card">
+    <h3>浙江省法治村建设成果</h3>
+    <div class="left-card">
+      <iframe src="./echarts/4-1.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div class="right-cards">
+      <div class="card-small">
+        <iframe src="./echarts/4-2.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="card-small">
+        <iframe src="./echarts/4-3.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var currentPage = 1;
+
+    function nextPage() {
+      var iframe1 = document.getElementById("iframe1");
+      var iframe2 = document.getElementById("iframe2");
+
+      if (currentPage === 1) {
+        iframe1.style.display = "none";
+        iframe2.style.display = "block";
+        currentPage = 2;
+      } else {
+        iframe1.style.display = "block";
+        iframe2.style.display = "none";
+        currentPage = 1;
+      }
+    }
+
+    // 每3秒自动跳转到下一页
+    setInterval(nextPage, 3000);
+  </script>
+
+
+
+
+</body>
+
+</html>

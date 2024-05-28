@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浙江省乡村建设可视化平台</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/797a9691f9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+  <!-- Dashboard Core -->
+  <link href="./assets/css/dashboard.css" rel="stylesheet" />
+  <script src="./assets/js/dashboard.js"></script>
+  <!-- c3.js Charts Plugin -->
+  <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/charts-c3/plugin.js"></script>
+  <!-- Google Maps Plugin -->
+  <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/maps-google/plugin.js"></script>
+  <!-- Input Mask Plugin -->
+  <script src="./assets/plugins/input-mask/plugin.js"></script>
+  <!-- Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Magnific Popup CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+  <!-- jQuery (necessary for Magnific Popup) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Magnific Popup JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/zhejiang.css">
+
+  <link rel="shortcut icon" href="./zhe.ico">
+
+  <style>
+    .card {
+      margin: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      /* 添加鼠标指针 */
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    /* 自定义样式 */
+    .center-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chart-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body class="">
+  <div class="page">
+    <div class="page-main">
+      <div class="header py-4">
+        <div class="container">
+          <div class="d-flex">
+            <a class="header-brand" href="./index.html">
+              <img src="./icons/浙江.png" class="logo" alt="logo">
+            </a>
+            <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+              <li class="nav-item">
+                <a href="./index.html" class="nav-link"><i class="fa-solid fa-house" style="color: #63E6BE;"></i>
+                  主页</a>
+              </li>
+              <li class="nav-item">
+                <a href="./furao.html" class="nav-link"><i class="fa-solid fa-money-bill-trend-up"
+                    style="color: #63E6BE;"></i> 富饶乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./renwen.html" class="nav-link"><i class="fa-solid fa-cable-car" style="color: #63E6BE;"></i>
+                  人文乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./shanzhi.html" class="nav-link"><i class="fa-solid fa-landmark" style="color: #63E6BE;"></i>
+                  善治乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./meili.html" class="nav-link"><i class="fa-solid fa-mountain-sun" style="color: #63E6BE;"></i>
+                  美丽乡村</a>
+              </li>
+              <li class="nav-item">
+                <a href="./shuzi.html" class="nav-link active"><i class="fa-solid fa-wifi" style="color: #63E6BE;"></i>
+                  数字乡村</a>
+              </li>
+            </ul>
+            <div class="d-flex order-lg-2 ml-auto">
+              <div class="nav-item d-none d-md-flex">
+                <a href="https://www.geosceneonline.cn/geoscene/apps/storymaps/stories/e5ced13f144b403abfe78e89b0edeab9"
+                  target="_blank" class="btn btn-sm btn-outline-primary">Story Map</a>
+              </div>
+            </div>
+            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse"
+              data-target="#headerMenuCollapse">
+              <span class="header-toggler-icon"></span>
+            </a>
+          </div>
+          <hr> <!-- 分割线 -->
+        </div>
+      </div>
+
+      <script>
+        // 获取当前页面的 URL
+        var currentPageUrl = window.location.href;
+
+        // 导航链接列表
+        var navLinks = document.querySelectorAll('.nav-tabs .nav-item .nav-link');
+
+        // 循环遍历导航链接
+        navLinks.forEach(function (navLink) {
+          // 如果当前导航链接的 href 与当前页面的 URL 匹配
+          if (navLink.getAttribute('href') === currentPageUrl) {
+            // 添加活动状态类
+            navLink.classList.add('active');
+          }
+        });
+
+      </script>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 center-card">
+            <div class="card" style="width: 800px;">
+              <a href="./成品图/6.jpg" class="card-img-link" title="点击图片预览" target="_blank">
+                <img src="./成品图/6.jpg" class="card-img-top" alt="图片">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">数字乡村</h5>
+                <p class="card-text">
+                  数字乡村建设是深入实施乡村振兴战略的具体行动，是推动农业农村现代化的有力抓手。得益于浙江互联网大省和数字经济发展先发地的良好发展环境，浙江数字乡村建设具有独特的优势和良好的基础。</p>
+                <a href="http://theory.people.com.cn/n1/2022/0325/c40531-32383928.html#:~:text=%E5%9C%A8%E5%86%9C%E6%9D%91%E5%9C%B0%E5%8C%BA%E5%8A%A0%E5%BF%AB%E5%B8%83,%E4%B9%A1%E6%9D%91%E7%9A%84%E5%8F%91%E5%B1%95%E5%9F%BA%E7%A1%80%E3%80%82"
+                  class="btn btn-primary" target="_blank">了解更多</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Magnific Popup JavaScript -->
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $('.card-img-link').magnificPopup({
+            type: 'image',
+            closeOnContentClick: true,
+            closeBtnInside: false,
+            callbacks: {
+              open: function () {
+                $('body').addClass('mfp-open');
+              },
+              close: function () {
+                $('body').removeClass('mfp-open');
+              }
+            }
+          });
+
+          // 点击图片关闭预览
+          $('.mfp-img').click(function () {
+            $.magnificPopup.close();
+          });
+        });
+      </script>
+
+      <div class="main-card">
+        <h3>浙江省乡村数字化发展水平</h3>
+        <div class="left-card">
+          <iframe src="./echarts/6-2.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="right-cards">
+          <div class="card-small">
+            <iframe src="./echarts/6-4.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+          </div>
+          <div class="card-small">
+            <iframe src="./echarts/6-3.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="big-card">
+        <iframe src="./charts/6_time/time.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
