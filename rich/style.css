@@ -29,6 +29,7 @@ body{
 .item{
     width: calc(var(--index) * 3);
     height: calc(var(--index) * 12);
+    background-color: #e6e2b3;
     background-size: cover;
     background-position: center;
     cursor: pointer;
