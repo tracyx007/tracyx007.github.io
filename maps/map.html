@@ -76,15 +76,6 @@
                 "imgurl": "https://i.postimg.cc/RZfCBSBP/image.jpg"
             }
         ]
-
-        var center=[];
-        data.forEach(function (item) {
-            var keyword = "安吉余村";
-            if (item.name.includes(keyword)) {
-                center = [item.position[0], item.position[1]]
-            }
-        })
-
         function mapInit() {
             map = new AMap.Map('map-container', {
                 rotateEnable: true,
@@ -92,10 +83,10 @@
                 pitch: 50,
                 rotation: -15,
                 viewMode: '3D',
-                zoom: 15,
+                zoom: 7,
                 minZoom: 5, // 设置地图允许的最小缩放级别为 13
                 maxZoom: 20, // 设置地图允许的最大缩放级别为 20
-                center: center,
+                center:[120.05155157844536, 30.177575212771004] ,
                 resizeEnable: true
             });
         };
