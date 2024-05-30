@@ -55,8 +55,37 @@
       /* 添加鼠标指针 */
     }
 
+    .img-mid{
+      max-width: 100%; /* 图片宽度最大不超过其容器宽度 */
+  max-height: 100%; /* 图片高度最大不超过其容器高度 */
+  vertical-align: middle; /* 确保图片在其容器中垂直居中 */
+    }
+
     .card-body {
       padding: 20px;
+    }
+
+    .card-half {
+      padding: 20px;
+      height: 500px;
+    }
+    .card-half-1 {
+      height: 500px;
+    }
+
+    img {
+      width: 250px;
+      height: 200px;
+      border-radius: 8px;
+      margin: 0 auto 20px;
+      /* 水平居中并设置底部间距 */
+    }
+
+    .card-half-1 img{
+      width: 320px;
+      height: auto;
+      margin-top: 100px;
+      margin-bottom: 0;
     }
 
     /* 自定义样式 */
@@ -65,7 +94,21 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+
     }
+    .scard {
+  display: flex; /* 使用Flexbox布局 */
+  flex-direction: column; /* 设置为垂直布局 */
+  align-items: center; /* 垂直居中对齐 */
+  text-align: center; /* 文字居中显示 */  
+  width: 300px; /* 固定容器宽度为300px */
+  height: 285px; /* 固定容器高度为400px */
+  position: relative;
+}
+   .scard img {
+  margin: 0 8px; /* 设置左右边距像素 */
+  border-radius: 12px;
+}
   </style>
 </head>
 
@@ -324,7 +367,9 @@
       </script>
     </div>
   </div>
-  <div class="main-card">
+  <div classection: column; 
+      align-items: center; 
+      text-a="main-card">
     <h3 class="font1">浙江省法治村建设成果</h3>
     <div class="left-card">
       <h5 class="font2">浙江省各批“全国民主法治示范村”入选情况</h5>
@@ -338,6 +383,82 @@
       <div class="card-small">
         <h5 class="font2">2023年浙江省各市入选省级民主法治村数量</h5>
         <iframe src="./echarts/4-3.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="main-card">
+    <h2 class="font1">全国乡村治理典型案例</h2>
+    <div class="card-container">
+      <div class="card-row">
+        <div class="scard">
+          <h2 class="font2">嘉兴市桐乡市</h2>
+          <a href="https://www.mca.gov.cn/n152/n166/c44446/content.html"><img src="./img/桐乡市.jpg" ></a>
+          <p>自治法治德治融合</p>
+        </div>
+        <div class="scard">
+          <h2 class="font2">宁波市宁海县</h2>
+          <a href="http://journal.crnews.net/ncjygl/2021n/d11q/xczl/945187_20220301074646.html"><img src="./img/宁海县.jpg" ></a>
+          <p>小微权力清单“36条” 构建乡村反腐新机制</p>
+        </div>
+        <div class="scard">
+          <h2 class="font2">宁波市象山县</h2>
+          <a href="https://www.thepaper.cn/newsDetail_forward_21581954?commTag=true"><img src="./img/象山县.jpg" ></a>
+          <p>搭建线上“村民说事” 畅通群众议事协商渠道
+          </p>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="scard">
+          <h2 class="font2">宁波市鄞州区</h2>
+          <a href="https://www.sohu.com/a/416761259_120798024"><img src="./img/鄞州区.jpg" ></a>
+          <p>基层公权力“三清单”运行法撬动乡村治理</p>
+        </div>
+        <div class="scard">
+          <h2 class="font2">温岭市</h2>
+          <a href="http://journal.crnews.net/ncjygl/2021n/d1q/xczl/935226_20210513054957.html"><img src="./img/温岭市.jpg"></a>
+          <p>强化党建引领 创新网格治理</p>
+        </div>
+        <div class="scard">
+          <h2 class="font2">桐乡市乌镇</h2>
+          <a href="http://journal.crnews.net/ncjygl/2021n/d3q/xczl/935296_20210520024216.html"><img src="./img/乌镇.jpg"></a>
+          <p>“乌镇管家”赋能乡村治理</p>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="scard">
+          <h2 class="font2">杭州市建德市</h2>
+          <a href="http://dangjian.people.com.cn/n1/2022/1026/c441888-32552200.html"><img src="./img/建德市.jpg"></a>
+          <p>走村不漏户 户户见干部</p>
+        </div>
+        <div class="scard">
+          <h2 class="font2">金华市武义县</h2>
+          <a href="https://www.sohu.com/a/479077742_120252431"><img src="./img/武义县.jpg" ></a>
+          <p>深化“后陈经验” 完善“一肩挑”背景下的村级运行机制</p>
+        </div>
+        <div class="scard">
+          <h2 class="font2">湖州市安吉县孝丰镇横溪坞村</h2>
+          <a href="https://www.zjwx.gov.cn/art/2020/9/24/art_1694818_58564510.html"><img src="./img/孝丰镇横溪坞村.jpg"></a>
+          <p>“四个不出村”推动乡村服务升级</p>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="scard">
+          <h2 class="font2">衢州市</h2>
+          <a href="https://m.thepaper.cn/baijiahao_21369383"><img src="./img/衢州市.jpg"></a>
+          <p>“县乡一体、条抓块统”提升治理效能</p>
+        </div>
+        <div class="scard">
+          <h2 class="font2">丽水市云和县</h2>
+          <a href="https://baijiahao.baidu.com/s?id=1754146071481379689"><img src="./img/云和县.jpg"></a>
+          <p>创新“街乡共治”模式 推动城乡融合治理</p>
+        </div>
+        <div class="scard">
+          <h2 class="font2">杭州市建德市</h2>
+          <a href="https://www.thepaper.cn/newsDetail_forward_21547051" ><img src="./img/建德市.jpg"></a>
+          <p>“建村钉”敞开乡村数字治理大门</p>
+        </div>
       </div>
     </div>
   </div>
