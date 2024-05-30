@@ -112,6 +112,11 @@ body {
   margin-bottom: 10px;
 }
 
+.card-big {
+  width: 100%;
+  height: 520px;
+}
+
 .right-card {
   width: 450px;
   /* 或者你希望的卡片宽度 */
