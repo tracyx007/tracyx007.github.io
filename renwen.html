@@ -59,10 +59,13 @@
       /* 添加鼠标指针 */
     }
 
-    .img-mid{
-      max-width: 100%; /* 图片宽度最大不超过其容器宽度 */
-  max-height: 100%; /* 图片高度最大不超过其容器高度 */
-  vertical-align: middle; /* 确保图片在其容器中垂直居中 */
+    .img-mid {
+      max-width: 100%;
+      /* 图片宽度最大不超过其容器宽度 */
+      max-height: 100%;
+      /* 图片高度最大不超过其容器高度 */
+      vertical-align: middle;
+      /* 确保图片在其容器中垂直居中 */
     }
 
     .card-body {
@@ -73,6 +76,7 @@
       padding: 20px;
       height: 500px;
     }
+
     .card-half-1 {
       height: 500px;
     }
@@ -85,7 +89,7 @@
       /* 水平居中并设置底部间距 */
     }
 
-    .card-half-1 img{
+    .card-half-1 img {
       width: 320px;
       height: auto;
       margin-top: 100px;
@@ -101,8 +105,51 @@
 
     }
 
-    
-    
+    .card-container {
+
+      padding-top: 0;
+    }
+
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;   
+      height: 50px;
+      width: 50px;
+      margin: auto;
+    }
+
+    *[data-animation="ripple"] {
+      width: 20%;
+      display: block;
+      outline: none;
+      padding: 10px;
+      color: #fff;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #f2d2f3 0%, #d0f5f9 100%);
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 14px;
+      font-family: roboto, helvetica;
+      font-weight: 200;
+      letter-spacing: 1px;
+      text-decoration: none;
+      box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      /*border-radius: 50px;*/
+      -webkit-tap-highlight-color: transparent;
+      border-radius: 5px;
+    }
+
+    *[data-animation="ripple"]:focus {
+      outline: none;
+    }
+
+    *[data-animation="ripple"]::selection {
+      background: transparent;
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -236,21 +283,27 @@
 
       <div class="main-card">
         <h2 class="font1">乡村文化传承创新案例</h2>
+        <div class="container">
+          <a data-animation="ripple" id="linkToMaps">案例分布</span></a>
+        </div>
         <div class="card-container">
           <div class="card-row">
             <div class="scard">
               <h2 class="font2">湖州市安吉余村</h2>
-              <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/zj/202302/t20230214_939092.htm" target="_blank"><img src="./img/安吉余.jpg" alt="生态农业示范基地"></a>
+              <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/zj/202302/t20230214_939092.htm" target="_blank"><img
+                  src="./img/安吉余.jpg" alt="生态农业示范基地"></a>
               <p>“两山”理念样板生态文明村</p>
             </div>
             <div class="scard">
               <h2 class="font2">台州市下叶村</h2>
-              <a href="https://zjnews.zjol.com.cn/zjnews/tznews/201908/t20190809_10766470.shtml" target="_blank"><img src="./img/下叶村.jpeg" alt="乡村旅游景点"></a>
+              <a href="https://zjnews.zjol.com.cn/zjnews/tznews/201908/t20190809_10766470.shtml" target="_blank"><img
+                  src="./img/下叶村.jpeg" alt="乡村旅游景点"></a>
               <p>“生态立乡”民宿集聚村</p>
             </div>
             <div class="scard">
               <h2 class="font2">宁波市新建村</h2>
-              <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/zj/201512/t20151230_786090.htm" target="_blank"><img src="./img/新建村.jpg" alt="示例3"></a>
+              <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/zj/201512/t20151230_786090.htm" target="_blank"><img
+                  src="./img/新建村.jpg" alt="示例3"></a>
               <p>生态文旅融合成文创小镇南洞艺谷
               </p>
             </div>
@@ -258,7 +311,8 @@
           <div class="card-row">
             <div class="scard">
               <h2 class="font2">嘉兴市横港村</h2>
-              <a href="https://zj.chinadaily.com.cn/a/202005/29/WS5ed080d4a310f5a71bd1fbd6.html" target="_blank"><img src="./img/横港村.jpg" alt="示例4"></a>
+              <a href="https://zj.chinadaily.com.cn/a/202005/29/WS5ed080d4a310f5a71bd1fbd6.html" target="_blank"><img
+                  src="./img/横港村.jpg" alt="示例4"></a>
               <p>艺术扎根打造文旅游融合新样板</p>
             </div>
             <div class="scard">
@@ -275,17 +329,20 @@
           <div class="card-row">
             <div class="scard">
               <h2 class="font2">衢州市大陈村</h2>
-              <a href="https://www.crnews.net/xf/g/943378_20211223013433.html" target="_blank"><img src="./img/大陈村.jpg" alt="示例7"></a>
+              <a href="https://www.crnews.net/xf/g/943378_20211223013433.html" target="_blank"><img src="./img/大陈村.jpg"
+                  alt="示例7"></a>
               <p>中国村歌发源地</p>
             </div>
             <div class="scard">
               <h2 class="font2">嘉兴市胜丰村</h2>
-              <a href="https://www.xiuzhou.gov.cn/art/2022/8/9/art_1229411941_4963183.html" target="_blank"><img src="./img/胜丰村.jpg" alt="示例8"></a>
+              <a href="https://www.xiuzhou.gov.cn/art/2022/8/9/art_1229411941_4963183.html" target="_blank"><img
+                  src="./img/胜丰村.jpg" alt="示例8"></a>
               <p>非遗扎根打造乡村振兴新样板</p>
             </div>
             <div class="scard">
               <h2 class="font2">杭州市龙门秘境村落</h2>
-              <a href="https://www.chinanews.com.cn/sh/2022/07-02/9794182.shtml" target="_blank"><img src="./img/龙门秘境.jpg" alt="示例9"></a>
+              <a href="https://www.chinanews.com.cn/sh/2022/07-02/9794182.shtml" target="_blank"><img
+                  src="./img/龙门秘境.jpg" alt="示例9"></a>
               <p>村落景区理念注入传统文化</p>
             </div>
           </div>
@@ -305,7 +362,8 @@
             <div class="col-md-8">
               <div class="card">
                 <div class="card-half" style="background-color: #f7f8fd;">
-                  <iframe src="./charts/3_culture/index.html" width="100%" height="100%" frameborder="0" style="overflow-x: hidden"></iframe>
+                  <iframe src="./charts/3_culture/index.html" width="100%" height="100%" frameborder="0"
+                    style="overflow-x: hidden"></iframe>
                 </div>
               </div>
             </div>
@@ -341,6 +399,254 @@
     });       
   </script>
 
+  <script>
+    window["tmripple"] =
+ (function (modules) { // webpackBootstrap
+ 	// The module cache
+ 	var installedModules = {};
+
+ 	function __webpack_require__(moduleId) {
+
+ 		// Check if module is in cache
+ 		if (installedModules[moduleId]) {
+ 			return installedModules[moduleId].exports;
+            
+}
+ 		// Create a new module (and put it into the cache)
+ 		var module = installedModules[moduleId] = {
+ 			i: moduleId,
+ 			l: false,
+ 			exports: {}
+            
+};
+
+ 		// Execute the module function
+ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+ 		// Flag the module as loaded
+ 		module.l = true;
+
+ 		// Return the exports of the module
+ 		return module.exports;
+          
+}
+
+
+ 	// expose the modules object (__webpack_modules__)
+ 	__webpack_require__.m = modules;
+
+ 	// expose the module cache
+ 	__webpack_require__.c = installedModules;
+
+ 	// define getter function for harmony exports
+ 	__webpack_require__.d = function (exports, name, getter) {
+ 		if (!__webpack_require__.o(exports, name)) {
+ 			Object.defineProperty(exports, name, {
+ 				configurable: false,
+ 				enumerable: true,
+ 				get: getter
+      
+});
+            
+}
+          
+};
+
+ 	// getDefaultExport function for compatibility with non-harmony modules
+ 	__webpack_require__.n = function (module) {
+ 		var getter = module && module.__esModule ?
+ 			function getDefault() { return module['default']; } :
+ 			function getModuleExports() { return module; };
+ 		__webpack_require__.d(getter, 'a', getter);
+ 		return getter;
+          
+};
+
+ 	// Object.prototype.hasOwnProperty.call
+ 	__webpack_require__.o = function (object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+ 	// __webpack_public_path__
+ 	__webpack_require__.p = "";
+
+ 	// Load entry module and return exports
+ 	return __webpack_require__(__webpack_require__.s = 0);
+        
+})
+/************************************************************************/
+([
+/* 0 */
+/***/ (function (module, exports, __webpack_require__) {
+
+        "use strict";
+
+
+        // Default Settings
+        var settings = {
+          area: "",
+          color: "rgba(255, 255, 255, 0.4)",
+          offsetEl: null,
+          eventListener: "click",
+          mouseMove: false
+        };
+
+        /**
+         * @description Where the magic happens
+         * @param {object} e
+         * @param {string} rippleColor
+         * @param {string} eventListener
+         */
+        function ripple(e, rippleColor, eventListener) {
+          var clickedEl = e.currentTarget;
+          var PageX = eventListener.match(/touch/) ? e.changedTouches[0].pageX : e.clientX;
+          var PageY = eventListener.match(/touch/) ? e.changedTouches[0].pageY : e.clientY;
+          var btnWidth = clickedEl.clientWidth;
+          var el = clickedEl.getBoundingClientRect();
+          var rippleOffset = settings.offsetEl ? settings.offsetEl.clientHeight : 0;
+          var btnOffsetTop = el.top + rippleOffset;
+          var btnOffsetLeft = el.left;
+          var posMouseX = PageX;
+          var posMouseY = PageY + rippleOffset;
+          var rippleX = posMouseX - btnOffsetLeft;
+          var rippleY = posMouseY - btnOffsetTop;
+
+          var baseCSS = "\n          position: absolute;\n          width: " + btnWidth * 2 + "px;\n          height: " + btnWidth * 2 + "px;\n          border-radius: 50%;\n          transition: transform 700ms, opacity 700ms;\n          transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);\n          background: " + rippleColor + ";\n          background-position: center;\n          background-repeat: no-repeat;\n          background-size: 100%;\n          left: " + (rippleX - btnWidth) + "px;\n          top: " + (rippleY - btnWidth) + "px;\n          transform: scale(0);\n          pointer-events: none;\n      ";
+
+          // Prepare the dom
+          var rippleEffect = document.createElement("span");
+          rippleEffect.style.cssText = baseCSS;
+
+          // Add some css for prevent overflow errors
+          clickedEl.style.overflow = "hidden";
+
+          // Check if the element is not static because the ripple is in absolute
+          if (window.getComputedStyle(clickedEl).position === "static") {
+            clickedEl.style.position = "relative";
+          }
+
+          // Check for the mousemove event
+          if (settings.mouseMove) {
+            settings.mouseMove = false;
+            return;
+          }
+
+          clickedEl.appendChild(rippleEffect);
+
+          // start animation
+          requestAnimationFrame(function () {
+            rippleEffect.style.cssText = baseCSS + " transform: scale(1); opacity: 0;";
+          });
+
+          setTimeout(function () {
+            rippleEffect.remove();
+          }, 700);
+        }
+
+        /**
+         * @description Prevent ripple when scrolling (Mobile Only)
+         * @param {string} eventListener
+         */
+        function onDrag(eventListener) {
+          if (eventListener === "touchend") {
+            document.getElementsByTagName("body")[0].addEventListener("touchmove", function () {
+              settings.mouseMove = true;
+            });
+          }
+        }
+
+        function attachRipple(els, rippleColor, eventListener) {
+          for (var i = 0; i < els.length; i += 1) {
+            var currentBtn = els[i];
+            currentBtn.addEventListener(eventListener, function (e) {
+              return ripple(e, rippleColor, eventListener);
+            });
+          }
+        }
+
+        function attachRippleToAttribute(area, rippleColor, eventListener) {
+          var attributeEl = document.querySelectorAll(area + " [data-animation='ripple']");
+
+          if (attributeEl.length > 0) {
+            attachRipple(attributeEl, rippleColor, eventListener);
+          } else {
+            throw new Error('not found any element with data-animation="ripple"');
+          }
+        }
+
+        function attachRippleToSelectors(selectors, rippleColor, eventListener) {
+          if (selectors) {
+            var selectorsEl = document.querySelectorAll(selectors);
+          } else {
+            throw new Error("You have to enter at least 1 selector");
+          }
+
+          if (selectorsEl.length > 0) {
+            attachRipple(selectorsEl, rippleColor, eventListener);
+          } else {
+            console.warn("No element found with this selector: ", selectors);
+          }
+        }
+
+        module.exports = {
+          init: function init() {
+            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+            try {
+              var area = settings.area,
+                color = settings.color,
+                offsetEl = settings.offsetEl,
+                eventListener = settings.eventListener;
+
+
+              area = data.area || area;
+              color = data.color || color;
+              offsetEl = data.offsetEl ? this.setOffsetEl(data.offsetEl) : offsetEl;
+              eventListener = data.eventListener || eventListener;
+
+              onDrag(eventListener);
+              attachRippleToAttribute(area, color, eventListener);
+            } catch (e) {
+              console.warn(e.message);
+            }
+          },
+          attachToSelectors: function attachToSelectors() {
+            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+            try {
+              var elSetting = {
+                color: data.color || settings.color,
+                eventListener: data.eventListener || settings.eventListener
+              };
+              var color = elSetting.color,
+                eventListener = elSetting.eventListener;
+
+
+              attachRippleToSelectors(data.selectors, color, eventListener);
+            } catch (e) {
+              console.warn(e.message);
+            }
+          },
+          setOffsetEl: function setOffsetEl(el) {
+            settings.offsetEl = document.querySelector(el);
+          },
+
+          ripple: ripple
+        };
+
+        /***/
+})
+]);
+
+    tmripple.init()
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('linkToMaps');
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // 阻止默认的链接跳转行为
+        window.location.href = './maps/map.html'; // 使用JavaScript来改变页面位置
+    });
+});
+  </script>
 </body>
 
 </html>
